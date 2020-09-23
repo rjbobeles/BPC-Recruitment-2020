@@ -97,14 +97,25 @@
         data-lax-preset="lazy-180"
       />
     </div>
+    <submitForm />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Ref } from 'vue-property-decorator'
+import { ApiResponse } from '@/types'
+import fetchSubmissionData from '@/helpers'
 
-@Component
+import Form from '@/components/Form.vue'
+
+@Component({
+  components: {
+    Form,
+  },
+})
 export default class Home extends Vue {
+  apiRes: ApiResponse = {}
+
   @Ref('toolA') readonly toolA!: HTMLImageElement
 
   @Ref('toolB') readonly toolB!: HTMLImageElement
@@ -118,6 +129,7 @@ export default class Home extends Vue {
     Vue.prototype.$lax.addElement(this.toolB)
     Vue.prototype.$lax.addElement(this.toolC)
     Vue.prototype.$lax.addElement(this.toolD)
+    this.setApiRes()
   }
 
   beforeDestroy() {
@@ -125,6 +137,10 @@ export default class Home extends Vue {
     Vue.prototype.$lax.addElement(this.toolB)
     Vue.prototype.$lax.addElement(this.toolC)
     Vue.prototype.$lax.addElement(this.toolD)
+  }
+
+  async setApiRes() {
+    this.apiRes = await fetchSubmissionData()
   }
 }
 </script>
