@@ -5,7 +5,7 @@
         class="container relative z-10 hero-section h-screen py-24 flex flex-col items-center justify-between text-white"
       >
         <img
-          src="http://nameplates.thebenildean.org/nameplates/BPC_Logo_and_Nameplate_Variation_White.png"
+          src="../assets/images//nameplates/BPC_Logo_and_Nameplate_Variation_White.png"
           width="300px"
           class="mb-8 lg:mb-16 px-5"
         />
@@ -25,10 +25,7 @@
       >
         <div class="w-full flex flex-col md:flex-row">
           <div class="w-1/6 md:w-1/4 flex items-center justify-center mx-auto mb-12 md:mb-0">
-            <img
-              src="http://nameplates.thebenildean.org/nameplates/BPC_Logo_White.png"
-              class="w-full lg:w-3/4"
-            />
+            <img src="../assets/images//nameplates/BPC_Logo_White.png" class="w-full lg:w-3/4" />
           </div>
           <div
             class="w-11/12 sm:w-3/4 md:w-2/3 lg:w-2/3 xl:w-3/5 relative challenge mx-auto px-5 pt-12 pb-8 md:pb-12 sm:px-12"
@@ -64,7 +61,7 @@
             </div>
             <a class="mx-auto md:mx-0 md:absolute start-button" href="#">
               <img
-                src="../assets/img/start-button.png"
+                src="../assets/images/home/start-button.png"
                 class="mx-auto mt-12 md:mt-0 w-48 md:w-32 lg:w-48"
               />
             </a>
@@ -72,28 +69,28 @@
         </div>
       </div>
       <img
-        src="../assets/img/tool-1.png"
+        src="../assets/images/home/tool-1.png"
         class="absolute hidden sm:inline"
         id="tool-1"
         ref="toolA"
         data-lax-preset="lazy-200"
       />
       <img
-        src="../assets/img/tool-2.png"
+        src="../assets/images/home/tool-2.png"
         class="absolute hidden sm:inline"
         id="tool-2"
         ref="toolB"
         data-lax-preset="lazy-180"
       />
       <img
-        src="../assets/img/tool-3.png"
+        src="../assets/images/home/tool-3.png"
         class="absolute hidden sm:inline"
         id="tool-3"
         ref="toolC"
         data-lax-preset="lazy-200"
       />
       <img
-        src="../assets/img/tool-4.png"
+        src="../assets/images/home/tool-4.png"
         class="absolute hidden sm:inline"
         id="tool-4"
         ref="toolD"
