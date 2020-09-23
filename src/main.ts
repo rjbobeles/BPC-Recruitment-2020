@@ -6,6 +6,8 @@ import router from './router'
 import '@/assets/scss/tailwind.scss'
 import '@/assets/scss/styles.scss'
 
+require('dotenv').config()
+
 Vue.config.productionTip = false
 
 declare module 'vue/types/vue' {
