@@ -97,7 +97,8 @@
         data-lax-preset="lazy-180"
       />
     </div>
-    <submitForm />
+    <div class="h-screen">a</div>
+    <Form :courses="apiRes.courses" :positions="apiRes.positions" />
   </div>
 </template>
 
@@ -124,12 +125,15 @@ export default class Home extends Vue {
 
   @Ref('toolD') readonly toolD!: HTMLImageElement
 
+  async created() {
+    await this.setApiRes()
+  }
+
   mounted() {
     Vue.prototype.$lax.addElement(this.toolA)
     Vue.prototype.$lax.addElement(this.toolB)
     Vue.prototype.$lax.addElement(this.toolC)
     Vue.prototype.$lax.addElement(this.toolD)
-    this.setApiRes()
   }
 
   beforeDestroy() {
