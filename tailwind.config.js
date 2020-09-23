@@ -37,6 +37,11 @@ module.exports = {
         "screen-4/5": "80vh",
         "screen-1/6": "16.66vh",
         "screen-5/6": "83.34vh",
+        "1/2": "50%",
+      },
+      fontSize: {
+        "7xl": "5rem",
+        "8xl": "6rem",
       },
     },
     minHeight: {
@@ -57,6 +62,7 @@ module.exports = {
       black: "#000000",
       white: "#FFFFFF",
       marble: "#EFEFEF",
+      cement: "#909090",
     },
   },
   variants: {},
