@@ -5,20 +5,20 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue'
 
 export default Vue.extend({
   mounted() {
-    window.requestAnimationFrame(this.updateLax);
+    window.requestAnimationFrame(this.updateLax)
   },
   methods: {
     updateLax(): void {
-      Vue.prototype.$lax.update(window.scrollY);
-      window.requestAnimationFrame(this.updateLax);
+      Vue.prototype.$lax.update(window.scrollY)
+      window.requestAnimationFrame(this.updateLax)
     },
   },
   created() {
-    Vue.prototype.$lax.setup();
+    Vue.prototype.$lax.setup()
   },
-});
+})
 </script>

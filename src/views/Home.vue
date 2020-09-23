@@ -104,30 +104,30 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref } from "vue-property-decorator";
+import { Vue, Component, Ref } from 'vue-property-decorator'
 
 @Component
 export default class Home extends Vue {
-  @Ref("toolA") readonly toolA!: HTMLImageElement;
+  @Ref('toolA') readonly toolA!: HTMLImageElement
 
-  @Ref("toolB") readonly toolB!: HTMLImageElement;
+  @Ref('toolB') readonly toolB!: HTMLImageElement
 
-  @Ref("toolC") readonly toolC!: HTMLImageElement;
+  @Ref('toolC') readonly toolC!: HTMLImageElement
 
-  @Ref("toolD") readonly toolD!: HTMLImageElement;
+  @Ref('toolD') readonly toolD!: HTMLImageElement
 
   mounted() {
-    Vue.prototype.$lax.addElement(this.toolA);
-    Vue.prototype.$lax.addElement(this.toolB);
-    Vue.prototype.$lax.addElement(this.toolC);
-    Vue.prototype.$lax.addElement(this.toolD);
+    Vue.prototype.$lax.addElement(this.toolA)
+    Vue.prototype.$lax.addElement(this.toolB)
+    Vue.prototype.$lax.addElement(this.toolC)
+    Vue.prototype.$lax.addElement(this.toolD)
   }
 
   beforeDestroy() {
-    Vue.prototype.$lax.addElement(this.toolA);
-    Vue.prototype.$lax.addElement(this.toolB);
-    Vue.prototype.$lax.addElement(this.toolC);
-    Vue.prototype.$lax.addElement(this.toolD);
+    Vue.prototype.$lax.addElement(this.toolA)
+    Vue.prototype.$lax.addElement(this.toolB)
+    Vue.prototype.$lax.addElement(this.toolC)
+    Vue.prototype.$lax.addElement(this.toolD)
   }
 }
 </script>
