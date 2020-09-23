@@ -1,0 +1,59 @@
+@mixin font($font-family, $font-file) {
+    @font-face {
+      font-family: $font-family;
+      src:  url($font-file+'.woff') format('woff');
+      src:  url($font-file+'.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .#{$font-family} {
+      font-family: $font-family; 
+    }
+}
+
+//Paralucent
+@include font('paralucent-bold',                          '../../assets/fonts/paralucent/paralucent_bold');
+@include font('paralucent-bolditalic',                    '../../assets/fonts/paralucent/paralucent_bolditalic');
+@include font('paralucent-demibold',                      '../../assets/fonts/paralucent/paralucent_demibold');
+@include font('paralucent-demibolditalic',                '../../assets/fonts/paralucent/paralucent_demibolditalic');
+@include font('paralucent-extralight',                    '../../assets/fonts/paralucent/paralucent_extralight');
+@include font('paralucent-extralightitalic',              '../../assets/fonts/paralucent/paralucent_extralightitalic');
+@include font('paralucent-heavy',                         '../../assets/fonts/paralucent/paralucent_heavy');
+@include font('paralucent-heavyitalic',                   '../../assets/fonts/paralucent/paralucent_heavyitalic');
+@include font('paralucent-light',                         '../../assets/fonts/paralucent/paralucent_light');
+@include font('paralucent-lightitalic',                   '../../assets/fonts/paralucent/paralucent_lightitalic');
+@include font('paralucent-medium',                        '../../assets/fonts/paralucent/paralucent_medium');
+@include font('paralucent-mediumitalic',                  '../../assets/fonts/paralucent/paralucent_mediumitalic');
+@include font('paralucent-thin',                          '../../assets/fonts/paralucent/paralucent_thin');
+@include font('paralucent-thinitalic',                    '../../assets/fonts/paralucent/paralucent_thinitalic');
+
+//Paralucent Condensed
+@include font('paralucent-condensed-bold',                '../../assets/fonts/paralucent/paralucent_condensed_bold');
+@include font('paralucent-condensed-bolditalic',          '../../assets/fonts/paralucent/paralucent_condensed_bolditalic');
+@include font('paralucent-condensed-demibold',            '../../assets/fonts/paralucent/paralucent_condensed_demibold');
+@include font('paralucent-condensed-demibolditalic',      '../../assets/fonts/paralucent/paralucent_condensed_demibolditalic');
+@include font('paralucent-condensed-extralight',          '../../assets/fonts/paralucent/paralucent_condensed_extralight');
+@include font('paralucent-condensed-extralightitalic',    '../../assets/fonts/paralucent/paralucent_condensed_extralightitalic');
+@include font('paralucent-condensed-heavy',               '../../assets/fonts/paralucent/paralucent_condensed_heavy');
+@include font('paralucent-condensed-heavyitalic',         '../../assets/fonts/paralucent/paralucent_condensed_heavyitalic');
+@include font('paralucent-condensed-light',               '../../assets/fonts/paralucent/paralucent_condensed_light');
+@include font('paralucent-condensed-lightitalic',         '../../assets/fonts/paralucent/paralucent_condensed_lightitalic');
+@include font('paralucent-condensed-medium',              '../../assets/fonts/paralucent/paralucent_condensed_medium');
+@include font('paralucent-condensed-mediumitalic',        '../../assets/fonts/paralucent/paralucent_condensed_mediumitalic');
+@include font('paralucent-condensed-thin',                '../../assets/fonts/paralucent/paralucent_condensed_thin');
+@include font('paralucent-condensed-thinitalic',          '../../assets/fonts/paralucent/paralucent_condensed_thinitalic');
+
+//Paralucent Stencil
+@include font('paralucent-stencil-extralight',            '../../assets/fonts/paralucent/paralucent_stencil_extralight');
+@include font('paralucent-stencil-heavy',                 '../../assets/fonts/paralucent/paralucent_stencil_heavy');
+@include font('paralucent-stencil-medium',                '../../assets/fonts/paralucent/paralucent_stencil_medium');
+
+//Paralucent Text
+@include font('paralucent-text-bold',                     '../../assets/fonts/paralucent/paralucent_text_bold');
+@include font('paralucent-text-bolditalic',               '../../assets/fonts/paralucent/paralucent_text_bolditalic');
+@include font('paralucent-text-book',                     '../../assets/fonts/paralucent/paralucent_text_book');
+@include font('paralucent-text-bookitalic',               '../../assets/fonts/paralucent/paralucent_text_bookitalic');
+
+//Source Sans
+@include font('sourcesans-semibold',                     '../../assets/fonts/sourcesans/sourcesans-semibold');
+@include font('sourcesans-semibolditalic',               '../../assets/fonts/sourcesans/sourcesans-semibolditalic');
