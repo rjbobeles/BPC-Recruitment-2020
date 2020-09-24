@@ -10,9 +10,22 @@
           class="mb-8 lg:mb-16 px-5"
         />
         <div class="text-center flex flex-col items-center">
-          <h1 id="title1" class="text-7xl font-bold italic leading-none">THE CHALLENGE:</h1>
-          <h1 id="title2" class="text-8xl font-bold italic leading-none">ARE YOU UP FOR IT?</h1>
-          <div class="w-4/5 md:w-3/4 lg:w-5/12 my-16">
+          <h1
+            id="title1"
+            class="text-7xl font-bold italic leading-none wow fadeInDown"
+            data-wow-duration="0.5s"
+          >
+            THE CHALLENGE:
+          </h1>
+          <h1
+            id="title2"
+            class="text-8xl font-bold italic leading-none wow jackInTheBox"
+            data-wow-duration="0.7s"
+            data-wow-delay="0.4s"
+          >
+            ARE YOU UP FOR IT?
+          </h1>
+          <div class="w-4/5 md:w-3/4 lg:w-5/12 my-16 wow fadeInUp" data-wow-delay="1s">
             Gear up and showcase your abilities on the quest that will boost your drive and skills
             for journalism. Step up and take your place on the teams under the Benildean Press Corps
             and see if you're up for the challenge!
@@ -28,9 +41,10 @@
             <img src="../assets/images//nameplates/BPC_Logo_White.png" class="w-full lg:w-3/4" />
           </div>
           <div
-            class="w-11/12 sm:w-3/4 md:w-2/3 lg:w-2/3 xl:w-3/5 relative challenge mx-auto px-5 pt-12 pb-8 md:pb-12 sm:px-12"
+            class="flex flex-col w-11/12 sm:w-3/4 md:w-2/3 lg:w-2/3 xl:w-3/5 relative challenge mx-auto px-5 pt-12 pb-8 md:pb-12 sm:px-12 wow bounceIn"
+            data-wow-offset="300"
           >
-            <h3 class="font-bold italic text-5xl mb-8 leading-none absolute">THE CHALLENGE</h3>
+            <h3 class="font-bold italic text-5xl mb-8 leading-none">THE CHALLENGE</h3>
             <div class="text-xs">
               <p class="mb-5">
                 As unseen enemies approach the beacon of freedom, jeopardize our safety, and tamper
@@ -59,7 +73,10 @@
               </p>
               <p class="font-bold italic text-lg">Are you up for the Challenge?</p>
             </div>
-            <a class="mx-auto md:mx-0 md:absolute start-button" href="#">
+            <a
+              class="mx-auto md:mx-0 md:absolute start-button wow bounceIn hvr-grow"
+              href="#main-quest-1"
+            >
               <img
                 src="../assets/images/home/start-button.png"
                 class="mx-auto mt-12 md:mt-0 w-48 md:w-32 lg:w-48"
@@ -73,32 +90,64 @@
         class="absolute hidden sm:inline"
         id="tool-1"
         ref="toolA"
-        data-lax-preset="lazy-200"
+        data-lax-preset="lazy-250"
       />
       <img
         src="../assets/images/home/tool-2.png"
         class="absolute hidden sm:inline"
         id="tool-2"
         ref="toolB"
-        data-lax-preset="lazy-180"
+        data-lax-preset="lazy-210"
       />
       <img
         src="../assets/images/home/tool-3.png"
         class="absolute hidden sm:inline"
         id="tool-3"
         ref="toolC"
-        data-lax-preset="lazy-200"
+        data-lax-preset="lazy-250"
       />
       <img
         src="../assets/images/home/tool-4.png"
         class="absolute hidden sm:inline"
         id="tool-4"
         ref="toolD"
-        data-lax-preset="lazy-180"
+        data-lax-preset="lazy-210"
       />
     </div>
-    <div class="h-screen">a</div>
+    <div id="main-quest-1" class="main-quest-1 w-full py-24 bg-fixed bg-cover">
+      <div class="container mx-auto px-5 text-center lg:text-left">
+        <h4 class="text-white text-3xl">MAIN QUEST 1:</h4>
+        <h2 class="text-white text-5xl font-bold mb-24 lg:mb-16">GATHER YOUR GEAR AND ARMS</h2>
+        <div class="side-quests flex flex-col lg:flex-row">
+          <div class="w-full lg:w-1/3 flex justify-center lg:justify-start">
+            <side-quest :content="requirements[0]" :animation="requirements[0].animation" />
+          </div>
+          <div class="w-full lg:w-1/3 flex justify-center lg:justify-center">
+            <side-quest :content="requirements[1]" :animation="requirements[1].animation" />
+          </div>
+          <div class="w-full lg:w-1/3 flex justify-center lg:justify-end">
+            <side-quest :content="requirements[2]" :animation="requirements[2].animation" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="faq py-24">
+      <div class="container mx-auto px-5">
+        <div class="flex flex-col lg:flex-row lg:items-center w-full mb-16">
+          <h2 class="text-5xl font-bold flex-shrink-0 lg:pr-24 mb-5 lg:mb-0 leading-none relative">
+            STUCK? NEED HELP?
+          </h2>
+          <div class="lg:w-1/3 text-sm wow fadeInLeft" data-wow-offset="300">
+            We’ll help you get through this Challenge! Here’s everything you need to know and
+            questions we get asked the most when applying for the Benildean Press Corps.
+          </div>
+        </div>
+        <vue-faq-accordion :items="faqItems" class="w-full" activeColor="#000" borderColor="#000" />
+      </div>
+    </div>
+     <div class="h-screen">a</div>
     <Form :courses="apiRes.courses" :positions="apiRes.positions" />
+    <submitForm />
   </div>
 </template>
 
@@ -106,12 +155,16 @@
 import { Vue, Component, Ref } from 'vue-property-decorator'
 import { ApiResponse } from '@/types'
 import fetchSubmissionData from '@/helpers'
+import VueFaqAccordion from 'vue-faq-accordion'
 
 import Form from '@/components/Form.vue'
+import SideQuest from '@/components/content/SideQuest.vue'
 
 @Component({
   components: {
     Form,
+    SideQuest,
+    VueFaqAccordion,
   },
 })
 export default class Home extends Vue {
@@ -125,9 +178,120 @@ export default class Home extends Vue {
 
   @Ref('toolD') readonly toolD!: HTMLImageElement
 
+<<<<<<< HEAD
   async created() {
     await this.setApiRes()
   }
+=======
+  private requirements: Array<object> = [
+    {
+      heading: 'SIDE QUEST 1',
+      body: `Using your Benilde Mail, create a google drive folder and name it using the following format: 
+      <br /><br /> 
+      "LAST NAME_FIRSTNAME"`,
+      animation: {
+        name: 'flipInY',
+        duration: '0.8s',
+        delay: '0s',
+      },
+    },
+    {
+      heading: 'SIDE QUEST 2',
+      body: `Inside the folder, create three subfolders and label them accordingly by your section choices:
+      <br /><br /> 
+      First choice: "1. [SECTION]" <br /> 
+      Second Choice: "2. [SECTION]" <br /> 
+      Third Choice: "3. [SECTION]"`,
+      animation: {
+        name: 'flipInY',
+        duration: '0.8s',
+        delay: '0.2s',
+      },
+    },
+    {
+      heading: 'SIDE QUEST 3',
+      body: `Upload your requirements in each respective section folders.`,
+      animation: {
+        name: 'flipInY',
+        duration: '0.8s',
+        delay: '0.4s',
+      },
+    },
+  ]
+
+  private faqItems: Array<object> = [
+    {
+      title: 'What is BPC?',
+      value:
+        'The Benildean Press Corps (BPC) is the official student-journalists’ organization of De La Salle-College of Saint Benilde. The organization caters to the needs of the Benildean community by providing various services in the fields of journalism, visual and literary arts.',
+    },
+    {
+      title: 'Why should I join BPC?',
+      value:
+        'As students of De La Salle-College of Saint Benilde, we have a responsibility to be of service to our school community. If you have a passion for journalism in the forms of writing, visual, and literary arts, or you have the drive to lead a group of student-journalists, then joining BPC might be for you.',
+    },
+    {
+      title: 'What sections can I apply for?',
+      value:
+        'For this term’s recruitment, you can apply for PULSE (News Section), Ablaze (Sports Section), Karilyon (Filipino Section), Platform (Literary Section), Art and Design, Layout, Photo, Digital Media and Managing.',
+    },
+    {
+      title: 'Is recruitment only open to frosh students?',
+      value:
+        'No, recruitment for the Benildean Press Corps is open to all Benildean students, regardless of year level.',
+    },
+    {
+      title: 'What if I’m LOA, could I apply?',
+      value: 'No, only enrolled students for the 1st term of A.Y. 2020-2021 may apply.',
+    },
+    {
+      title:
+        'I lack experience in writing for the school paper, can I still have the chance to get in?',
+      value:
+        'Although having prior experience in journalism is a plus, you still have a chance to get in as long as we see you have potential through your submitted works, panel interviews, and exam.',
+    },
+    {
+      title: 'When are applications due?',
+      value: 'We are accepting applications for this term until October 11 2020 (Monday) 10:00pm.',
+    },
+    {
+      title: 'Do I need to fill up all three choices?',
+      value: 'No, you do not have to fill up all three choices.',
+    },
+    {
+      title: 'What happens if I don’t get accepted in any of my choices?',
+      value:
+        'You may apply again in the following term if there is an opening in your chosen position or section by then.',
+    },
+    {
+      title: 'How will I know if I got accepted?',
+      value:
+        'We will be sending out emails to both accepted and non-accepted applicants. Make sure to also like our Facebook page for further announcements. We will be releasing a list of the accepted applicants on Facebook.',
+    },
+    {
+      title: 'What are the requirements?',
+      value: `There are specific requirements for each section. You may view them <a href="#" class="underline">here</a>.`,
+    },
+    {
+      title: 'How do we submit requirements?',
+      value: `
+        <ol class="pl-5 list-decimal">
+          <li>Using your Google Drive, create a folder titled with your name in this format “LASTNAME_FIRSTNAME”</li> 
+          <li>Inside that folder, place subfolders with the format: “1. [Section you are applying for]” for your first choice and so on. You may only apply for three sections.</li>
+          <li>Send the link to our website. Make sure that it is shareable to “De La Salle-College of Saint Benilde” emails.</li> 
+        </ol> 
+      `,
+    },
+    {
+      title: 'If I join BPC, would I be granted a scholarship?',
+      value: `BPC is given a Student Publications Grant scholarship by DLS-CSB. However, due to the financial impact of the COVID-19 pandemic on the College, there will be no scholarships to be offered to new staffers of the organization until further notice.`,
+    },
+    {
+      title: 'I can’t find my desired option in the form below. What do I do?',
+      value: `That means the position that you're trying to apply for is currently unavailable in this term's application. You can check next term for availability.`,
+    },
+  ]
+>>>>>>> c2aa53d3fac95852adb4dd3c23b85094e3712316
 
   mounted() {
     Vue.prototype.$lax.addElement(this.toolA)
@@ -187,6 +351,10 @@ img#tool-4 {
       right: 3.5rem;
     }
   }
+}
+
+.main-quest-1 {
+  background-image: url('../assets/images/home/three-quests.webp');
 }
 
 @media only screen and (min-width: 1800px) {
@@ -293,20 +461,17 @@ img#tool-4 {
   }
 }
 @media only screen and (max-width: 639px) {
+  .challenge > h3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14vw;
+  }
   #title1 {
     font-size: 10vw;
   }
   #title2 {
     font-size: 15vw;
-  }
-}
-
-@media only screen and (max-width: 472px) {
-  .challenge {
-    padding-top: 24vw;
-    h3 {
-      font-size: 13vw;
-    }
   }
 }
 </style>
