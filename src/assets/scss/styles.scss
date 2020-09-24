@@ -1,3 +1,33 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.css'); 
+@import './hover.css'; 
+
 body {
   overflow-x: hidden; 
+  scroll-behavior: smooth;
+}
+
+.faq-wrapper {
+  max-width: initial !important; 
+  width: 100% !important; 
+
+  .accordion {
+    border-left: none !important;
+    border-right: none !important; 
+    border-bottom: none !important; 
+    border-top: 1px solid rgb(53, 53, 53) !important;  
+    border-radius: 0 !important; 
+    .accordion__item {
+      border-bottom: 1px solid rgb(53, 53, 53) !important; 
+      .accordion__title {
+        padding: 16px !important; 
+        font-weight: bold; 
+        .accordion__toggle-button {
+          margin-left: 30px; 
+        }
+      }
+      .accordion__value {
+        padding: 25px !important; 
+      }
+    }
+  }
 }
