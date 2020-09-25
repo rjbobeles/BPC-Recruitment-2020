@@ -1,8 +1,12 @@
 <template>
-  <div class="h-screen">
-    <div class="container flex flex-col h-screen justify-center">
+  <div id="form">
+    <div class="container flex flex-col h-full md:h-screen justify-center">
       <div>
-        <h1 class="paralucent-medium uppercase text-5xl text-center mb-10">Submissions</h1>
+        <h1
+          class="paralucent-medium uppercase text-4xl mt-10 md:mt-0 md:text-5xl text-center mb-10"
+        >
+          Submissions
+        </h1>
       </div>
       <form method="POST" @submit.prevent="checkForm">
         <div class="flex flex-col mx-2 md:flex-row md:mx-8">
@@ -312,7 +316,7 @@
           </div>
         </div>
       </form>
-      <span class="text-center text-sm mt-24">
+      <span class="text-center text-xs md:text-sm mt-24 mb-8">
         Benildean Press Corps &copy; 2020. All rights reserved.
       </span>
     </div>
@@ -334,7 +338,7 @@ hasError = true == "An error has occured. Please try again"
 */
 
 import Vue from 'vue'
-// import axios from 'axios'
+import axios from 'axios'
 import Multiselect from 'vue-multiselect'
 import { required, minLength, maxLength, between } from 'vuelidate/lib/validators'
 
@@ -360,14 +364,57 @@ export default Vue.extend({
       return `[${section}] ${position}`
     },
     submitForm() {
-      // this.submitting = true
-      // this.hasError = false
-      alert('called')
+      const data = {
+        name: this.userData.name,
+        nickname: this.userData.nickname,
+        placeOfBirth: this.userData.placeOfBirth,
+        nationality: this.userData.nationality,
+        idNumber: this.userData.idNumber,
+        course: this.getChoiceID(this.userData.course),
+        email: this.userData.email,
+        phoneNo: this.userData.phoneNo,
+        transferee: this.userData.transferee,
+        secondDegree: this.userData.secondDegree,
+        termsLeft: this.userData.termsLeft,
+        choices: {
+          choice1: this.getChoiceID(this.userData.choices.choice1),
+          choice2: this.getChoiceID(this.userData.choices.choice2),
+          choice3: this.getChoiceID(this.userData.choices.choice3),
+        },
+        drive: this.userData.drive,
+      }
+      this.submitting = true
+      this.hasError = false
+
+      axios
+        .post(`${process.env.VUE_APP_API_URL}submit`, {
+          type: process.env.VUE_APP_API_TYPE,
+          theme: process.env.VUE_APP_API_THEME,
+          data,
+        })
+        .then(() => {
+          this.submitting = false
+          this.hasError = true
+          this.submitted = false
+          this.$router.push({ name: 'Thank You' })
+        })
+        .catch(() => {
+          this.submitting = false
+          this.hasError = true
+          this.submitted = false
+          this.$router.push({ name: 'Home' })
+        })
     },
     checkForm() {
       this.$v.$touch()
-      if (this.$v.$error || this.submitting) return alert('error fam')
-      return this.submitForm()
+      if (this.$v.$error || this.submitting) return
+      this.submitForm()
+    },
+    getChoiceID(choice) {
+      if (choice) {
+        return choice.id
+      }
+      return 0
     },
   },
   data() {
@@ -387,6 +434,7 @@ export default Vue.extend({
         phoneNo: null,
         transferee: false,
         secondDegree: false,
+        termsLeft: null,
         choices: {
           choice1: null,
           choice2: null,
@@ -455,13 +503,24 @@ export default Vue.extend({
       choices: {
         choice1: {
           required,
-          between: between(1, 12),
+          choice1Valid(choice1) {
+            if (choice1 != null && choice1.id > 0 && choice1.id < 13) return true
+            return false
+          },
         },
         choice2: {
-          between: between(0, 12),
+          choice1Valid(choice2) {
+            if (choice2 === null) return true
+            if (choice2 != null && choice2.id >= 0 && choice2.id < 13) return true
+            return false
+          },
         },
         choice3: {
-          between: between(0, 12),
+          choice1Valid(choice3) {
+            if (choice3 === null) return true
+            if (choice3 != null && choice3.id >= 0 && choice3.id < 13) return true
+            return false
+          },
         },
       },
       drive: {
@@ -478,6 +537,14 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  color: #333;
+}
+
+#form {
+  background-image: url('../assets/images/home/form-bg.jpg');
+}
+
 input {
   background-color: transparent;
   border-bottom: 1px solid #333;
@@ -525,8 +592,21 @@ input:focus {
 .submitButton {
   color: #333;
   border: 1px solid #333;
-  padding: 3px;
-  width: 60px;
+  padding: 7px;
+  -webkit-transition: background-color 200ms linear;
+  -moz-transition: background-color 200ms linear;
+  -o-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
+}
+
+.submitButton:hover {
+  background-color: white;
+  -webkit-transition: background-color 200ms linear;
+  -moz-transition: background-color 200ms linear;
+  -o-transition: background-color 200ms linear;
+  -ms-transition: background-color 200ms linear;
+  transition: background-color 200ms linear;
 }
 
 .conditions {
