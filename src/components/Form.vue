@@ -333,18 +333,48 @@ hasError = true == "An error has occured. Please try again"
 
 */
 
-import { Component, Vue, Prop } from 'vue-property-decorator'
-import axios from 'axios'
+import Vue from 'vue'
+// import axios from 'axios'
 import Multiselect from 'vue-multiselect'
 import { required, minLength, maxLength, between } from 'vuelidate/lib/validators'
-import { Position, Course } from '../types'
 
-@Component({
+export default Vue.extend({
   components: {
     Multiselect,
   },
+  props: {
+    courses: {
+      default: null,
+      type: Array,
+    },
+    positions: {
+      default: null,
+      type: Array,
+    },
+  },
+  methods: {
+    courseLabel({ code, course }) {
+      return `[${code}] ${course}`
+    },
+    positionLabel({ section, position }) {
+      return `[${section}] ${position}`
+    },
+    submitForm() {
+      // this.submitting = true
+      // this.hasError = false
+      alert('called')
+    },
+    checkForm() {
+      this.$v.$touch()
+      if (this.$v.$error || this.submitting) return alert('error fam')
+      return this.submitForm()
+    },
+  },
   data() {
     return {
+      hasError: false,
+      submitting: false,
+      submitted: false,
       name: null,
       userData: {
         name: null,
@@ -365,41 +395,6 @@ import { Position, Course } from '../types'
         drive: null,
       },
     }
-  },
-  methods: {
-    courseLabel({ code, course }) {
-      return `[${code}] ${course}`
-    },
-    positionLabel({ section, position }) {
-      return `[${section}] ${position}`
-    },
-    /* submitForm() {
-      this.submitting = true
-      this.hasError = false
-
-      axios
-        .post(process.env.VUE_APP_API_URL, {
-          type: process.env.VUE_APP_API_TYPE,
-          theme: process.env.VUE_APP_API_THEME,
-          data: userData,
-        })
-        .then(() => {
-          this.submitting = false
-          this.hasError = true
-          this.submitted = false
-        })
-        .catch(() => {
-          this.submitting = false
-          this.hasError = true
-          this.submitted = false
-        })
-    },
-    checkForm() {
-      this.$v.$touch()
-      if (this.$v.$error || this.submitting) return
-      submitForm()
-    }, 
-  */
   },
   validations: {
     userData: {
@@ -480,17 +475,6 @@ import { Position, Course } from '../types'
     },
   },
 })
-export default class SubmitForm extends Vue {
-  @Prop() private positions!: Array<Position>
-
-  @Prop() private courses!: Array<Course>
-
-  private submitting!: boolean
-
-  private submitted!: boolean
-
-  private hasError!: boolean
-}
 </script>
 
 <style lang="scss" scoped>
