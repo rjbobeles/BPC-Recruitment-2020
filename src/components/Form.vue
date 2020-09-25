@@ -116,7 +116,7 @@
                 type="email"
                 name="email"
                 id="email"
-                placeholder="EMAIL"
+                placeholder="BENILDE EMAIL"
                 class="w-full mt-4"
                 v-model.trim="userData.email"
                 @blur="$v.userData.email.$touch()"
