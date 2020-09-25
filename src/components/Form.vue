@@ -12,46 +12,78 @@
                 type="text"
                 name="name"
                 id="name"
-                v-model="userData.name"
+                v-model.trim="userData.name"
                 placeholder="LAST NAME, FIRST NAME"
                 class="w-full"
+                @blur="$v.userData.name.$touch()"
               />
+              <span
+                v-show="$v.userData.name.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Name must follow the format: LAST NAME, FIRST NAME
+              </span>
             </div>
             <div>
               <input
                 type="text"
                 name="nickname"
                 id="nickname"
-                v-model="userData.nickname"
+                v-model.trim="userData.nickname"
                 placeholder="NICKNAME"
                 class="w-full mt-4"
+                @blur="$v.userData.nickname.$touch()"
               />
+              <span
+                v-show="$v.userData.nickname.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Nickname has to be between 1 to 30 characters
+              </span>
             </div>
             <div>
               <input
                 type="text"
                 name="placeOfBirth"
                 id="placeOfBirth"
-                v-model="userData.placeOfBirth"
+                v-model.trim="userData.placeOfBirth"
                 placeholder="PLACE OF BIRTH (CITY)"
                 class="w-full mt-4"
+                @blur="$v.userData.placeOfBirth.$touch()"
               />
+              <span
+                v-show="$v.userData.placeOfBirth.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Place of birth must be 1 to 30 characters
+              </span>
             </div>
             <div>
               <input
                 type="text"
                 name="nationality"
                 id="nationality"
-                v-model="userData.nationality"
+                v-model.trim="userData.nationality"
                 placeholder="NATIONALITY"
                 class="w-full mt-4"
+                @blur="$v.userData.nationality.$touch()"
               />
+              <span
+                v-show="$v.userData.nationality.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Nationality must be 5 to 20 characters
+              </span>
             </div>
             <div>
               <multiselect
                 v-if="courses"
                 style="overflow: auto"
-                v-model="userData.cuorse"
+                v-model.trim="userData.course"
                 deselect-label="Can't remove this value"
                 track-by="id"
                 :custom-label="courseLabel"
@@ -61,35 +93,74 @@
                 :allow-empty="false"
                 :max-height="100"
                 class="mt-4"
+                @close="$v.userData.course.$touch()"
               >
                 <template slot="singleLabel" slot-scope="{ option }">
                   [{{ option.code }}] {{ option.course }}
                 </template>
               </multiselect>
+              <span
+                v-show="$v.userData.course.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Course is required
+              </span>
             </div>
             <div>
-              <input type="email" name="email" id="email" placeholder="EMAIL" class="w-full mt-4" />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="EMAIL"
+                class="w-full mt-4"
+                v-model.trim="userData.email"
+                @blur="$v.userData.email.$touch()"
+              />
+              <span
+                v-show="$v.userData.email.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Email must be a valid benilde email
+              </span>
             </div>
             <div>
               <input
                 type="text"
                 name="phoneNo"
                 id="phoneNo"
-                v-model="userData.phoneNo"
+                v-model.trim="userData.phoneNo"
                 placeholder="PHONE NUMBER"
                 class="w-full mt-4"
+                @blur="$v.userData.phoneNo.$touch()"
               />
+              <span
+                v-show="$v.userData.phoneNo.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Phone number must be a valid
+              </span>
             </div>
             <div>
               <input
                 type="text"
                 name="idNumber"
                 id="idNumber"
-                v-model="userData.idNumber"
+                v-model.trim="userData.idNumber"
                 placeholder="ID NUMBER (Ex. 11012345)"
                 class="w-full mt-4"
+                @blur="$v.userData.idNumber.$touch()"
               />
             </div>
+            <span
+              v-show="$v.userData.idNumber.$error"
+              v-if="!submitted"
+              class="text-xs error self-start"
+            >
+              ID number must be a valid Benilde ID number
+            </span>
           </div>
           <div class="flex-1 md:ml-2">
             <div class="mt-4 md:mt-0">
@@ -97,7 +168,7 @@
                 type="checkbox"
                 id="transferee"
                 name="transferee"
-                :value="userData.transferee"
+                v-model.trim="userData.transferee"
                 class="form-checkbox"
               />
               TRANSFEREE
@@ -105,7 +176,7 @@
                 type="checkbox"
                 id="secondDegree"
                 name="secondDegree"
-                :value="userData.secondDegree"
+                v-model.trim="userData.secondDegree"
                 class="ml-4 form-checkbox"
               />
               SECOND DEGREE
@@ -117,13 +188,22 @@
                 placeholder="TERMS LEFT"
                 class="w-full mt-4"
                 style="padding-top: 1px"
+                v-model.trim="userData.termsLeft"
+                @blur="$v.userData.termsLeft.$touch()"
               />
+              <span
+                v-show="$v.userData.termsLeft.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Terms left must be between 1 to 15
+              </span>
             </div>
             <div>
               <multiselect
                 v-if="positions"
                 style="overflow: auto"
-                v-model="userData.choices.choice1"
+                v-model.trim="userData.choices.choice1"
                 deselect-label="Can't remove this value"
                 track-by="id"
                 :custom-label="positionLabel"
@@ -133,16 +213,25 @@
                 :allow-empty="false"
                 :max-height="100"
                 class="mt-4"
+                @close="$v.userData.choices.choice1.$touch()"
               >
                 <template slot="singleLabel" slot-scope="{ option }">
                   [{{ option.section }}] {{ option.position }}
                 </template>
               </multiselect>
-
+              <span
+                v-show="$v.userData.choices.choice1.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Choice 1 is required
+              </span>
+            </div>
+            <div>
               <multiselect
                 v-if="positions"
                 style="overflow: auto"
-                v-model="userData.choices.choice2"
+                v-model.trim="userData.choices.choice2"
                 deselect-label="Can't remove this value"
                 track-by="id"
                 :custom-label="positionLabel"
@@ -152,16 +241,25 @@
                 :allow-empty="false"
                 :max-height="100"
                 class="mt-4"
+                @close="$v.userData.choices.choice2.$touch()"
               >
                 <template slot="singleLabel" slot-scope="{ option }">
                   [{{ option.section }}] {{ option.position }}
                 </template>
               </multiselect>
-
+              <span
+                v-show="$v.userData.choices.choice2.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                You need to enter a valid choice
+              </span>
+            </div>
+            <div>
               <multiselect
                 v-if="positions"
                 style="overflow: auto"
-                v-model="userData.choices.choice3"
+                v-model.trim="userData.choices.choice3"
                 deselect-label="Can't remove this value"
                 track-by="id"
                 :custom-label="positionLabel"
@@ -171,20 +269,36 @@
                 :allow-empty="false"
                 :max-height="100"
                 class="mt-4"
+                @close="$v.userData.choices.choice3.$touch()"
               >
                 <template slot="singleLabel" slot-scope="{ option }">
                   [{{ option.section }}] {{ option.position }}
                 </template>
               </multiselect>
+              <span
+                v-show="$v.userData.choices.choice3.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                You need to enter a valid choice
+              </span>
             </div>
             <div>
               <input
                 name="drive"
                 id="drive"
-                v-model="userData.drive"
-                placeholder="DRIVE LINK"
+                v-model.trim="userData.drive"
+                placeholder="GOOGLE DRIVE LINK"
                 class="w-full mt-4"
+                @blur="$v.userData.drive.$touch()"
               />
+              <span
+                v-show="$v.userData.drive.$error"
+                v-if="!submitted"
+                class="text-xs error self-start"
+              >
+                Google Drive link must be a valid and has sharing enabled.
+              </span>
             </div>
             <div class="flex justify-end flex-col">
               <p class="conditions mt-8">
@@ -198,36 +312,40 @@
           </div>
         </div>
       </form>
+      <span class="text-center text-sm mt-24">
+        Benildean Press Corps &copy; 2020. All rights reserved.
+      </span>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+/*
+NOTES: 
+
+submitting = true == show loading screen
+submitting = false == hide loading screen
+
+submitted = true == "Thank you for sending your inquiry. Expect a reply within 24-48 hours" + MAKE THE ENTIRE FORM DISABLED
+^^ If user submits again when this is true show "You have already sent an inquiry!"
+
+hasError = true == "An error has occured. Please try again"
+
+*/
+
 import { Component, Vue, Prop } from 'vue-property-decorator'
+import axios from 'axios'
 import Multiselect from 'vue-multiselect'
-import { validationMixin } from 'vuelidate'
-import { required, email, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, between } from 'vuelidate/lib/validators'
 import { Position, Course } from '../types'
 
 @Component({
   components: {
     Multiselect,
   },
-  methods: {
-    courseLabel({ code, course }) {
-      return `[${code}] ${course}`
-    },
-    positionLabel({ section, position }) {
-      return `[${section}] ${position}`
-    },
-  },
-  mixins: [validationMixin],
   data() {
     return {
-      submitting: false,
-      submitted: false,
-      hasError: false,
-      value: null,
+      name: null,
       userData: {
         name: null,
         nickname: null,
@@ -248,11 +366,130 @@ import { Position, Course } from '../types'
       },
     }
   },
+  methods: {
+    courseLabel({ code, course }) {
+      return `[${code}] ${course}`
+    },
+    positionLabel({ section, position }) {
+      return `[${section}] ${position}`
+    },
+    /* submitForm() {
+      this.submitting = true
+      this.hasError = false
+
+      axios
+        .post(process.env.VUE_APP_API_URL, {
+          type: process.env.VUE_APP_API_TYPE,
+          theme: process.env.VUE_APP_API_THEME,
+          data: userData,
+        })
+        .then(() => {
+          this.submitting = false
+          this.hasError = true
+          this.submitted = false
+        })
+        .catch(() => {
+          this.submitting = false
+          this.hasError = true
+          this.submitted = false
+        })
+    },
+    checkForm() {
+      this.$v.$touch()
+      if (this.$v.$error || this.submitting) return
+      submitForm()
+    }, 
+  */
+  },
+  validations: {
+    userData: {
+      name: {
+        required,
+        minLength: minLength(4),
+        maxLength: maxLength(60),
+        isFullName(name) {
+          return /^([A-Z][a-z]*,((\s)[A-Z][a-z]*)+)$/.test(name)
+        },
+      },
+      nickname: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(30),
+      },
+      placeOfBirth: {
+        required,
+        minLength: minLength(2),
+        maxLength: maxLength(50),
+      },
+      nationality: {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(20),
+      },
+      idNumber: {
+        required,
+        isIDNumber(idNumber) {
+          return /^(1)[0-5][0-9]([0-9]{5}\b)$/.test(idNumber)
+        },
+      },
+      course: {
+        required,
+      },
+      email: {
+        required,
+        isBenildeMail(email) {
+          return /^[a-z0-9](\.?[a-z0-9]){5,}@benilde.edu.ph$/.test(email)
+        },
+      },
+      phoneNo: {
+        required,
+        isPhoneNo(phoneNo) {
+          return /((^(\+)(\d){12}$)|(^\d{11}$))/.test(phoneNo)
+        },
+      },
+      termsLeft: {
+        required,
+        between: between(0, 15),
+      },
+      transferee: {
+        required,
+      },
+      secondDegree: {
+        required,
+      },
+      choices: {
+        choice1: {
+          required,
+          between: between(1, 12),
+        },
+        choice2: {
+          between: between(0, 12),
+        },
+        choice3: {
+          between: between(0, 12),
+        },
+      },
+      drive: {
+        required,
+        isDrive(drive) {
+          return /^((https:\/\/)?(www.)?(drive.google.com\/drive\/folders\/){1}[a-zA-Z0-9_-]+(\?usp=sharing)\b)$/.test(
+            drive
+          )
+        },
+      },
+    },
+  },
 })
 export default class SubmitForm extends Vue {
   @Prop() private positions!: Array<Position>
 
   @Prop() private courses!: Array<Course>
+
+  private submitting!: boolean
+
+  private submitted!: boolean
+
+  private hasError!: boolean
 }
 </script>
 
@@ -310,5 +547,9 @@ input:focus {
 
 .conditions {
   font-size: 9px;
+}
+
+.error {
+  color: #f56565;
 }
 </style>
