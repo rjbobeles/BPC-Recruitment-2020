@@ -145,9 +145,7 @@
         <vue-faq-accordion :items="faqItems" class="w-full" activeColor="#000" borderColor="#000" />
       </div>
     </div>
-     <div class="h-screen">a</div>
     <Form :courses="apiRes.courses" :positions="apiRes.positions" />
-    <submitForm />
   </div>
 </template>
 
@@ -178,11 +176,10 @@ export default class Home extends Vue {
 
   @Ref('toolD') readonly toolD!: HTMLImageElement
 
-<<<<<<< HEAD
   async created() {
     await this.setApiRes()
   }
-=======
+
   private requirements: Array<object> = [
     {
       heading: 'SIDE QUEST 1',
@@ -291,7 +288,6 @@ export default class Home extends Vue {
       value: `That means the position that you're trying to apply for is currently unavailable in this term's application. You can check next term for availability.`,
     },
   ]
->>>>>>> c2aa53d3fac95852adb4dd3c23b85094e3712316
 
   mounted() {
     Vue.prototype.$lax.addElement(this.toolA)
