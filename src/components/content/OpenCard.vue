@@ -3,7 +3,7 @@
     <div class="w-full text-center md:text-left">
       <h4 class="paralucent-medium text-2xl leading-none">TEAM CHALLENGE:</h4>
       <h2 class="paralucent-text-bold text-4xl leading-tight">{{ val.challenge }}</h2>
-      <div class="flex flex-col md:flex-row pt-5 xl:pt-12 pb-5 mb-3 items-center">
+      <div class="flex flex-col md:flex-row pt-8 xl:pt-12 pb-5 mb-3 items-center md:items-start">
         <div class="w-1/2 md:w-1/3 flex justify-center items-center mb-12 md:mb-0">
           <div v-tilt="{ glare: true, scale: 1.05, 'max-glare': 1, gyroscope: true }">
             <img
@@ -83,7 +83,7 @@ img {
 
 @media only screen and (max-width: 1023px) {
   .card {
-    width: 720px;
+    width: 750px;
   }
 }
 
