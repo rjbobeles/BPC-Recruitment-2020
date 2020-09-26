@@ -4,7 +4,7 @@
       <h4 class="paralucent-medium text-2xl leading-none">TEAM CHALLENGE:</h4>
       <h2 class="paralucent-text-bold text-4xl leading-tight">{{ val.challenge }}</h2>
       <div class="flex flex-col md:flex-row pt-8 xl:pt-12 pb-5 mb-3 items-center md:items-start">
-        <div class="w-1/2 md:w-1/3 flex justify-center items-center mb-12 md:mb-0">
+        <div class="w-1/2 md:w-1/3 flex justify-center items-center self-center mb-12 md:mb-0">
           <div v-tilt="{ glare: true, scale: 1.05, 'max-glare': 1, gyroscope: true }">
             <img
               :src="require('../../assets/images/home/cards/' + val.image)"
