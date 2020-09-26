@@ -1,16 +1,14 @@
 <template>
-  <div id="form">
-    <div class="container flex flex-col h-full md:h-screen justify-center">
+  <div id="form" class="text-white">
+    <div class="container p-8 flex flex-col min-h-screen">
       <div>
-        <h1
-          class="paralucent-medium uppercase text-4xl mt-10 md:mt-0 md:text-5xl text-center mb-10"
-        >
+        <h1 class="paralucent-bold uppercase text-4xl mt-10 md:mt-0 md:text-5xl text-center mb-10">
           Submissions
         </h1>
       </div>
       <form method="POST" @submit.prevent="checkForm">
         <div class="flex flex-col mx-2 md:flex-row md:mx-8">
-          <div class="flex-1 justify-center md:mr-2">
+          <div class="flex-1 justify-center md:pr-5">
             <div>
               <input
                 type="text"
@@ -166,7 +164,7 @@
               ID number must be a valid Benilde ID number
             </span>
           </div>
-          <div class="flex-1 md:ml-2">
+          <div class="flex-1 md:pl-5">
             <div class="mt-4 md:mt-0">
               <input
                 type="checkbox"
@@ -310,13 +308,13 @@
                 correct and complete.
               </p>
               <div class="flex justify-end">
-                <input type="submit" value="Submit" class="submitButton mt-2" />
+                <input type="submit" value="Submit" class="submitButton mt-2 cursor-pointer" />
               </div>
             </div>
           </div>
         </div>
       </form>
-      <span class="text-center text-xs md:text-sm mt-24 mb-8">
+      <span class="paralucent-light text-center text-xs md:text-sm mt-24 mb-8">
         Benildean Press Corps &copy; 2020. All rights reserved.
       </span>
     </div>
@@ -537,18 +535,16 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  color: #333;
-}
-
 #form {
   background-image: url('../assets/images/home/form-bg.jpg');
 }
 
 input {
   background-color: transparent;
-  border-bottom: 1px solid #333;
-  color: #333;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  color: #fff;
+  padding: 0.5rem;
+  font-family: 'sourcesans-regular', sans-serif;
 }
 
 input:focus {
@@ -557,36 +553,49 @@ input:focus {
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: #333;
+  color: rgba(255, 255, 255, 0.75);
 }
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #333;
+  color: rgba(255, 255, 255, 0.75);
   opacity: 1;
 }
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #333;
+  color: rgba(255, 255, 255, 0.75);
   opacity: 1;
 }
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #333;
+  color: rgba(255, 255, 255, 0.75);
 }
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #333;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 ::placeholder {
   /* Most modern browsers support this now. */
-  color: #333;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .multiselect {
   background-color: transparent;
-  border-bottom: 1px solid #333;
-  color: #333;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.5rem;
+  position: relative;
+  overflow: visible !important;
+}
+
+.multiselect:focus,
+.multiselect:active {
+  border: none;
+  outline: none;
+}
+
+.multiselect:hover {
+  cursor: pointer;
 }
 
 .submitButton {
@@ -614,6 +623,6 @@ input:focus {
 }
 
 .error {
-  color: #f56565;
+  color: rgb(255, 235, 170);
 }
 </style>
