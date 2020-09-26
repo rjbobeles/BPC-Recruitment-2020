@@ -7,8 +7,11 @@
   >
     <div class="w-full flex flex-col items-center relative text-center">
       <img src="../../assets/images/home/coin.png" width="110px" class="absolute bob" />
-      <h4 class="font-bold text-3xl mb-5 mt-12">{{ content.heading }}</h4>
-      <div class="w-full text-center text-base md:text-sm" v-html="content.body"></div>
+      <h4 class="paralucent-demibold text-4xl mb-5 mt-12">{{ content.heading }}</h4>
+      <div
+        class="w-full text-center text-base md:text-sm sourcesans-semibold"
+        v-html="content.body"
+      ></div>
     </div>
   </div>
 </template>
