@@ -12,14 +12,14 @@
         <div class="text-center flex flex-col items-center">
           <h1
             id="title1"
-            class="text-7xl font-bold italic leading-none wow fadeInDown"
+            class="text-8xl paralucent-condensed-heavyitalic leading-none wow fadeInDown"
             data-wow-duration="0.5s"
           >
             THE CHALLENGE:
           </h1>
           <h1
             id="title2"
-            class="text-8xl font-bold italic leading-none wow jackInTheBox"
+            class="text-10xl paralucent-condensed-heavyitalic leading-none wow jackInTheBox"
             data-wow-duration="0.7s"
             data-wow-delay="0.4s"
           >
@@ -34,7 +34,7 @@
         <div></div>
       </div>
       <div
-        class="container relative z-10 the-challenge lg:h-screen md:px-5 pt-24 pb-48 md:pb-48 lg:pb-0 text-gritty"
+        class="container relative z-10 the-challenge lg:h-screen md:px-5 pt-12 pb-48 md:pb-48 lg:pb-0 text-gritty"
       >
         <div class="w-full flex flex-col md:flex-row">
           <div class="w-1/6 md:w-1/4 flex items-center justify-center mx-auto mb-12 md:mb-0">
@@ -44,8 +44,8 @@
             class="flex flex-col w-11/12 sm:w-3/4 md:w-2/3 lg:w-2/3 xl:w-3/5 relative challenge mx-auto px-5 pt-12 pb-8 md:pb-12 sm:px-12 wow bounceIn"
             data-wow-offset="300"
           >
-            <h3 class="font-bold italic text-5xl mb-8 leading-none">THE CHALLENGE</h3>
-            <div class="text-xs">
+            <h3 class="paralucent-demibold text-5xl mb-5 leading-none">THE CHALLENGE</h3>
+            <div class="text-sm">
               <p class="mb-5">
                 As unseen enemies approach the beacon of freedom, jeopardize our safety, and tamper
                 with the truth, the Benildean Press Corps wants you to take your place in the
@@ -58,7 +58,7 @@
                 Through visual and literary arts, it aims to inform, promote awareness, showcase
                 creativity, and empower the Benildean Community and the Filipino people.
               </p>
-              <p class="mb-5 font-bold">
+              <p class="mb-5 text-base sourcesans-bold">
                 We know you have what it takes to be part of the team, so here’s our challenge:
               </p>
               <p class="mb-12">
@@ -68,10 +68,10 @@
                 teams to explore your unlocked abilities and take part in beating deadlines and
                 conversing with diverse individuals.
               </p>
-              <p class="mb-2 font-bold">
+              <p class="mb-1 text-base sourcesans-bold">
                 May it be under the managing, writing, or creative teams, the call remains the same:
               </p>
-              <p class="font-bold italic text-lg">Are you up for the Challenge?</p>
+              <p class="sourcesans-bolditalic text-2xl">Are you up for the Challenge?</p>
             </div>
             <a
               class="mx-auto md:mx-0 md:absolute start-button wow bounceIn hvr-grow"
@@ -116,8 +116,10 @@
     </div>
     <div id="main-quest-1" class="main-quest-1 w-full py-24 bg-fixed bg-cover">
       <div class="container mx-auto px-5 text-center lg:text-left">
-        <h4 class="text-white text-3xl">MAIN QUEST 1:</h4>
-        <h2 class="text-white text-5xl font-bold mb-24 lg:mb-16">GATHER YOUR GEAR AND ARMS</h2>
+        <h4 class="text-white text-3xl paralucent-medium leading-none">MAIN QUEST 1:</h4>
+        <h2 class="text-white text-5xl font-bold mb-24 lg:mb-16 leading-tight paralucent-text-bold">
+          GATHER YOUR GEAR AND ARMS
+        </h2>
         <div class="side-quests flex flex-col lg:flex-row">
           <div class="w-full lg:w-1/3 flex justify-center lg:justify-start">
             <side-quest :content="requirements[0]" :animation="requirements[0].animation" />
@@ -134,16 +136,63 @@
     <div class="faq py-24">
       <div class="container mx-auto px-5">
         <div class="flex flex-col lg:flex-row lg:items-center w-full mb-16">
-          <h2 class="text-5xl font-bold flex-shrink-0 lg:pr-24 mb-5 lg:mb-0 leading-none relative">
+          <h2
+            class="text-5xl paralucent-demibold flex-shrink-0 lg:pr-24 mb-5 lg:mb-0 leading-none relative"
+          >
             STUCK? NEED HELP?
           </h2>
-          <div class="lg:w-1/3 text-sm wow fadeInLeft" data-wow-offset="300">
+          <div class="lg:w-1/3 text-sm wow fadeInLeft sourcesans-regular" data-wow-offset="300">
             We’ll help you get through this Challenge! Here’s everything you need to know and
             questions we get asked the most when applying for the Benildean Press Corps.
           </div>
         </div>
         <vue-faq-accordion :items="faqItems" class="w-full" activeColor="#000" borderColor="#000" />
       </div>
+    </div>
+    <div class="w-full pb-24 md:pb-32">
+      <div class="container mx-auto px-5 text-center md:text-left">
+        <h4 class="text-3xl paralucent-medium leading-none">MAIN QUEST 2:</h4>
+        <h2 class="text-5xl font-bold leading-none md:leading-tight paralucent-text-bold">
+          CHOOSE YOUR CHARACTER
+        </h2>
+        <div class="py-12 xl:px-12">
+          <div class="w-full flex stretch items-center mb-8">
+            <hr class="border-black w-full" />
+            <h3 class="mx-3 paralucent-text-bold text-4xl md:text-5xl">Writers</h3>
+            <hr class="border-black w-full" />
+          </div>
+          <div
+            class="flex flex-col sm:flex-row justify-center lg:justify-between flex-wrap lg:flex-no-wrap"
+          >
+            <cards
+              v-for="slot in writers"
+              :key="slot.id"
+              :title="slot.title"
+              :position="slot"
+              @open-card="openCard"
+            />
+          </div>
+        </div>
+        <div class="py-12 xl:px-12">
+          <div class="w-full flex stretch items-center mb-8">
+            <hr class="border-black w-full" />
+            <h3 class="mx-3 paralucent-text-bold text-4xl md:text-5xl">Creatives</h3>
+            <hr class="border-black w-full" />
+          </div>
+          <div
+            class="flex flex-col sm:flex-row justify-center lg:justify-between flex-wrap lg:flex-no-wrap"
+          >
+            <cards
+              v-for="slot in creatives"
+              :key="slot.id"
+              :title="slot.title"
+              :position="slot"
+              @open-card="openCard"
+            />
+          </div>
+        </div>
+      </div>
+      <xmodal v-model="isOpen" :params="options" />
     </div>
     <Form :courses="apiRes.courses" :positions="apiRes.positions" />
   </div>
@@ -157,12 +206,45 @@ import VueFaqAccordion from 'vue-faq-accordion'
 
 import Form from '@/components/Form.vue'
 import SideQuest from '@/components/content/SideQuest.vue'
+import Cards from '@/components/content/Cards.vue'
+import OpenCard from '@/components/content/OpenCard.vue'
+
+type position = {
+  title: string
+  subtitle: string
+  image: string
+  challenge: string
+  description: string
+  requirements: Array<reqGroup>
+  color: string
+}
+
+type card = {
+  value: position
+}
+
+type modalOptions = {
+  component: any
+  animation: string
+  backgroundColor: string
+  props: prop
+}
+
+type prop = {
+  val: position
+}
+
+type reqGroup = {
+  title: string
+  reqs: Array<string>
+}
 
 @Component({
   components: {
     Form,
     SideQuest,
     VueFaqAccordion,
+    Cards,
   },
 })
 export default class Home extends Vue {
@@ -289,6 +371,238 @@ export default class Home extends Vue {
     },
   ]
 
+  private writers: Array<position> = [
+    {
+      title: 'Pulse',
+      subtitle: 'News analysis + Editorial + Opinion',
+      image: 'card-pulse.png',
+      challenge: 'Will you unravel the truth?',
+      description:
+        'With its foremost mandate to uncover the truth, Pulse is committed in bringing and reporting of recent and relevant news, issues and controversies that concern not only the Benildean community, but as well as the youth and the general public, amid the threats brought by the global pandemic.',
+      requirements: [
+        {
+          title: 'Test',
+          reqs: [
+            'Curriculum Vitae (CV)',
+            'Three (3) sample works of fact-driven objective writing',
+          ],
+        },
+      ],
+      color: '#4fb948',
+    },
+    {
+      title: 'BLIP',
+      subtitle: 'Lifestyle + Interests + People',
+      image: 'card-blip.png',
+      challenge: 'Will you follow the trend?',
+      description:
+        'Showcasing the latest trends and culture, Benildean Lifestyle, Interests, and People (BLIP) gives a spotlight on the dimensions of fashion, music, film, theatre, and food for a good quarantine boost.',
+      requirements: [
+        {
+          title: '',
+          reqs: [
+            'Curriculum Vitae',
+            'Three (3) sample works on feature writing which preferably include a preview article and music album/movie review article',
+            'All entries must have a minimum of 300 words',
+          ],
+        },
+      ],
+      color: '#417abd',
+    },
+    {
+      title: 'Platform',
+      subtitle: 'Literary + Art + Design + Photography',
+      image: 'card-platform.png',
+      challenge: 'Will you move the plot forward?',
+      description:
+        'As you break out of the conventional through diverse creative writing, Platform aims to deliver literary works in both creative fiction and non-fiction masterpieces. It also contributes to keeping the literary community informed with the literary scene and its events.',
+      requirements: [
+        {
+          title: '',
+          reqs: [
+            'Curriculum Vitae',
+            'Minimum of three (3) best literary works which preferably include a short script/flash fiction, poetry, and literature review article',
+            'Flash fiction must have 200 to 300 words only',
+            'Other entries are limited to 800-1000 words only',
+          ],
+        },
+      ],
+      color: '#7d4299',
+    },
+    {
+      title: 'Ablaze',
+      subtitle: 'Sports + Technology + Fitness',
+      image: 'card-ablaze.png',
+      challenge: 'Will you chase the action?',
+      description:
+        'As we continue to chase the action, Ablaze keeps burning with the hottest updates on the College’s proudest athletes, as well as the trendiest news on fitness and technology.',
+      requirements: [
+        {
+          title: '',
+          reqs: [
+            'Curriculum Vitae',
+            'Three (3) sample articles on sports, health, and/or technology which preferably include a game review article on any mobile or desktop game',
+          ],
+        },
+      ],
+      color: '#f68a1e',
+    },
+    {
+      title: 'Karilyon',
+      subtitle: 'Kultura + Biyahe',
+      image: 'card-karilyon.png',
+      challenge: 'Itataguyod mo ba ang bandila?',
+      description:
+        'Kasabay ng pagtuklas sa mga bagong gawi, ang kahalagahan ng mga kultura, kasaysayan, at kasanayang maka-Pilipino ay higit na pinahahalagahan ng Karilyon. Mula sa paggunita ng mga pambansang kaganapan hanggang sa pagsusulat ng mga tula, pinauunlad nito ang Wikang Pambansa.',
+      requirements: [
+        {
+          title: '',
+          reqs: [
+            'Curriculum Vitae',
+            'Three (3) Filipino literary works (two poem/literary piece and one article)',
+          ],
+        },
+      ],
+      color: '#67411f',
+    },
+  ]
+
+  private creatives: Array<position> = [
+    {
+      title: 'Art & Design',
+      subtitle: '',
+      image: 'card-artdesign.png',
+      challenge: 'Will you portray our vision?',
+      description:
+        'With a blank canvas as their domain, the Art and Design section takes pride in producing versatile works through different mediums. From expressive illustrations to informative designs, the section does not only excel in technique but also in bringing life to their creative visions.',
+      requirements: [
+        {
+          title: 'Illustrator',
+          reqs: ['Curriculum Vitae (CV)', 'Three (3) to five (5) portfolio works'],
+        },
+        {
+          title: 'Graphic Designer',
+          reqs: ['Curriculum Vitae (CV)', 'Three (3) to five (5) portfolio works'],
+        },
+      ],
+      color: '#4fb948',
+    },
+    {
+      title: 'Layout',
+      subtitle: '',
+      image: 'card-layout.png',
+      challenge: 'Will you design with a purpose?',
+      description:
+        'Assembling the visual and written elements on printed and digital works, the Layout section ensures its harmonious coexistence at the moment of its completion. With an eye for print and digital design, they organize the structure and ensure its readability and interactivity through a purposeful design and layout, accompanied by a user-friendly animation.',
+      requirements: [
+        {
+          title: '',
+          reqs: [
+            'Curriculum Vitae (CV)',
+            'Three (3) magazine layouts (1 spread, two pages)',
+            'Two (2) to three (3) poster/social media layouts',
+            'Optional: One (1) website wireframe / prototype',
+          ],
+        },
+      ],
+      color: '#4fb948',
+    },
+    {
+      title: 'Digital Media',
+      subtitle: '',
+      image: 'card-digitalmedia.png',
+      challenge: 'Will you bridge the gap?',
+      description:
+        'Equipped with innovative and creative concepts to keep up with the ever-changing trends in technology and the online world, the Digital Media section digitalizes stories and develops websites through its three subsections: video production, social media engagement and management, as well as web development.',
+      requirements: [
+        {
+          title: 'Web Developer',
+          reqs: [
+            'Curriculum Vitae (CV)',
+            'Sample websites or website designs',
+            'Front end UI UX Sample',
+          ],
+        },
+        {
+          title: 'Video Producer',
+          reqs: [
+            'Curriculum Vitae (CV)',
+            'Three (3) sample works (include the link of where it’s published)',
+            'Knowledge in Motion Graphics is an advantage',
+          ],
+        },
+        {
+          title: 'Social Media Correspondent',
+          reqs: ['Curriculum Vitae (CV)', 'Sample copywriting or literary works'],
+        },
+      ],
+      color: '#4fb948',
+    },
+    {
+      title: 'Photo',
+      subtitle: '',
+      image: 'card-photo.png',
+      challenge: 'Will you capture history?',
+      description:
+        'By turning photographs into visual vessels of the story, the Photo section fearlessly rises up to the challenge of showcasing the creative world of studio shoots and the raw reality of coverages. In capturing the truth, photographers bring their perspective and stories in every shot.',
+      requirements: [
+        {
+          title: '',
+          reqs: [
+            'Curriculum Vitae (CV)',
+            'A portfolio with a minimum of ten (10) best works that must include photojournalism, events photography, and conceptual',
+            'Other requirements: personal camera and laptop',
+          ],
+        },
+      ],
+      color: '#4fb948',
+    },
+    {
+      title: 'Managing',
+      subtitle: '',
+      image: 'card-managing.png',
+      challenge: 'Will you keep us on track?',
+      description:
+        'Monitoring every operation and endeavor of the organization, the Managing section serves as the backbone that ensures efficient operations for print and digital work. Managers work on logistics, reservations, and coordination with various people and affiliations.',
+      requirements: [
+        {
+          title: '',
+          reqs: ['Curriculum Vitae (CV)'],
+        },
+      ],
+      color: '#4fb948',
+    },
+  ]
+
+  public isOpen = false
+
+  public options: modalOptions = {
+    component: OpenCard,
+    animation: 'scaleIn',
+    backgroundColor: '#e1e1e1',
+    props: {
+      val: {
+        title: '',
+        subtitle: '',
+        image: '',
+        challenge: '',
+        description: '',
+        requirements: [],
+        color: '',
+      },
+    },
+  }
+
+  public openCard = (pos: position) => {
+    this.options.props.val = pos
+    this.toggleModal()
+  }
+
+  public toggleModal(): void {
+    this.isOpen = !this.isOpen
+    console.log(this.isOpen)
+  }
+
   mounted() {
     Vue.prototype.$lax.addElement(this.toolA)
     Vue.prototype.$lax.addElement(this.toolB)
@@ -375,7 +689,7 @@ img#tool-4 {
   }
   .challenge {
     p {
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
     .text-lg {
       font-size: 1.5rem;

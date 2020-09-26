@@ -42,6 +42,9 @@ module.exports = {
       fontSize: {
         '7xl': '5rem',
         '8xl': '6rem',
+        '9xl': '7.2rem',
+        '10xl': '8rem',
+        xxl: '9.5rem',
       },
     },
     minHeight: {
@@ -57,12 +60,16 @@ module.exports = {
     },
     colors: {
       gritty: '#0c0c0c',
-      mango: '#FEB51A',
       ash: '#FCFCFC',
       black: '#000000',
       white: '#FFFFFF',
       marble: '#EFEFEF',
       cement: '#909090',
+      artdesign: '#f6df95',
+      layout: '#ffb0b0',
+      digitalmedia: '#6b6b6b',
+      photo: '#ff4444',
+      managing: '#b0b0b0',
     },
   },
   variants: {},
