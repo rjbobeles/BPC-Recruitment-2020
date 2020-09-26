@@ -55,5 +55,15 @@
 @include font('paralucent-text-bookitalic',               '../../assets/fonts/paralucent/paralucent_text_bookitalic');
 
 //Source Sans
-@include font('sourcesans-semibold',                     '../../assets/fonts/sourcesans/sourcesans-semibold');
-@include font('sourcesans-semibolditalic',               '../../assets/fonts/sourcesans/sourcesans-semibolditalic');
+@include font('sourcesans-black',                         '../../assets/fonts/sourcesans/SourceSansPro-Black');
+@include font('sourcesans-blackitalic',                   '../../assets/fonts/sourcesans/SourceSansPro-BlackItalic');
+@include font('sourcesans-bold',                          '../../assets/fonts/sourcesans/SourceSansPro-Bold');
+@include font('sourcesans-bolditalic',                    '../../assets/fonts/sourcesans/SourceSansPro-BoldItalic');
+@include font('sourcesans-extralight',                    '../../assets/fonts/sourcesans/SourceSansPro-ExtraLight');
+@include font('sourcesans-extralightitalic',              '../../assets/fonts/sourcesans/SourceSansPro-ExtraLightItalic');
+@include font('sourcesans-italic',                        '../../assets/fonts/sourcesans/SourceSansPro-Italic');
+@include font('sourcesans-light',                         '../../assets/fonts/sourcesans/SourceSansPro-Light');
+@include font('sourcesans-lightitalic',                   '../../assets/fonts/sourcesans/SourceSansPro-LightItalic');
+@include font('sourcesans-regular',                       '../../assets/fonts/sourcesans/SourceSansPro-Regular');
+@include font('sourcesans-semibold',                      '../../assets/fonts/sourcesans/SourceSansPro-SemiBold');
+@include font('sourcesans-semibolditalic',                '../../assets/fonts/sourcesans/SourceSansPro-SemiBoldItalic');

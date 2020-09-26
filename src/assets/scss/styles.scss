@@ -5,6 +5,10 @@
 body {
   overflow-x: hidden; 
   scroll-behavior: smooth;
+
+  p {
+    font-family: 'sourcesans-regular', sans-serif; 
+  }
 }
 
 .faq-wrapper {
@@ -22,13 +26,53 @@ body {
       .accordion__title {
         padding: 16px !important; 
         font-weight: bold; 
+        .accordion__title-text {
+          font-family: 'paralucent-bold', sans-serif;
+          font-size: 1.1rem; 
+        }
         .accordion__toggle-button {
           margin-left: 30px; 
         }
       }
       .accordion__value {
         padding: 25px !important; 
+        font-family: 'sourcesans-regular', sans-serif; 
       }
+    }
+  }
+}
+
+.multiselect__content-wrapper {
+  width: 100%; 
+  margin-top: .75rem; 
+  max-height: 300px !important; 
+  overflow: auto; 
+  background-color: white; 
+  border-radius: 0px 0px 8px 8px; 
+  color: black; 
+  border: 1px solid #d1d1d1; 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  position: absolute; 
+  left: 0; 
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d6d6d6;
+    border-radius: 10px; 
+ }
+  .multiselect__content {
+    width: 100%; 
+    .multiselect__element > span {
+      display: inline-block; 
+      padding: 0.75rem 1rem; 
+      width: 100%; 
+    }
+    .multiselect__element > span:hover {
+      background-color: #f5f5f5; 
+    }
+    .multiselect__option--selected {
+      background-color: #fce2bc; 
     }
   }
 }
