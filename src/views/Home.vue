@@ -149,8 +149,8 @@
         <vue-faq-accordion :items="faqItems" class="w-full" activeColor="#000" borderColor="#000" />
       </div>
     </div>
-    <div class="w-full pb-24 md:pb-32">
-      <div class="container mx-auto px-5 text-center md:text-left">
+    <div class="w-full pb-24 md:pb-32 relative">
+      <div class="container mx-auto px-5 text-center md:text-left relative z-10">
         <h4 class="text-3xl paralucent-medium leading-none">MAIN QUEST 2:</h4>
         <h2 class="text-5xl font-bold leading-none md:leading-tight paralucent-text-bold">
           CHOOSE YOUR CHARACTER
@@ -193,6 +193,34 @@
         </div>
       </div>
       <xmodal v-model="isOpen" :params="options" />
+      <img
+        src="../assets/images/home/tool-5.png"
+        class="absolute hidden sm:inline"
+        id="tool-5"
+        ref="toolE"
+        data-lax-preset="lazy-180"
+      />
+      <img
+        src="../assets/images/home/tool-6.png"
+        class="absolute hidden sm:inline"
+        id="tool-6"
+        ref="toolF"
+        data-lax-preset="lazy-150"
+      />
+      <img
+        src="../assets/images/home/tool-7.png"
+        class="absolute hidden sm:inline"
+        id="tool-7"
+        ref="toolG"
+        data-lax-preset="lazy-200"
+      />
+      <img
+        src="../assets/images/home/tool-8.png"
+        class="absolute hidden sm:inline"
+        id="tool-8"
+        ref="toolH"
+        data-lax-preset="lazy-220"
+      />
     </div>
     <Form :courses="apiRes.courses" :positions="apiRes.positions" />
   </div>
@@ -257,6 +285,14 @@ export default class Home extends Vue {
   @Ref('toolC') readonly toolC!: HTMLImageElement
 
   @Ref('toolD') readonly toolD!: HTMLImageElement
+
+  @Ref('toolE') readonly toolE!: HTMLImageElement
+
+  @Ref('toolF') readonly toolF!: HTMLImageElement
+
+  @Ref('toolG') readonly toolG!: HTMLImageElement
+
+  @Ref('toolH') readonly toolH!: HTMLImageElement
 
   async created() {
     await this.setApiRes()
@@ -608,13 +644,20 @@ export default class Home extends Vue {
     Vue.prototype.$lax.addElement(this.toolB)
     Vue.prototype.$lax.addElement(this.toolC)
     Vue.prototype.$lax.addElement(this.toolD)
+    Vue.prototype.$lax.addElement(this.toolE)
+    Vue.prototype.$lax.addElement(this.toolF)
+    Vue.prototype.$lax.addElement(this.toolG)
+    Vue.prototype.$lax.addElement(this.toolH)
   }
 
   beforeDestroy() {
     Vue.prototype.$lax.addElement(this.toolA)
     Vue.prototype.$lax.addElement(this.toolB)
     Vue.prototype.$lax.addElement(this.toolC)
-    Vue.prototype.$lax.addElement(this.toolD)
+    Vue.prototype.$lax.addElement(this.toolE)
+    Vue.prototype.$lax.addElement(this.toolF)
+    Vue.prototype.$lax.addElement(this.toolG)
+    Vue.prototype.$lax.addElement(this.toolH)
   }
 
   async setApiRes() {
@@ -643,6 +686,26 @@ img#tool-4 {
   bottom: 0;
   left: -180px;
   width: 400px;
+}
+img#tool-5 {
+  top: -5%;
+  left: -150px;
+  width: 320px;
+}
+img#tool-6 {
+  top: -5%;
+  right: -120px;
+  width: 320px;
+}
+img#tool-7 {
+  bottom: 10%;
+  left: -120px;
+  width: 270px;
+}
+img#tool-8 {
+  bottom: 18%;
+  right: -72px;
+  width: 200px;
 }
 .hero-section {
   min-height: 680px;
@@ -687,6 +750,21 @@ img#tool-4 {
     bottom: 10%;
     left: -2%;
   }
+  img#tool-5 {
+    left: -80px;
+  }
+  img#tool-6 {
+    top: -10%;
+    right: -20px;
+  }
+  img#tool-7 {
+    bottom: 26%;
+    left: -72px;
+  }
+  img#tool-8 {
+    bottom: 24%;
+    right: 12px;
+  }
   .challenge {
     p {
       font-size: 1rem;
@@ -713,6 +791,26 @@ img#tool-4 {
   }
   img#tool-4 {
     bottom: 0;
+  }
+  img#tool-5 {
+    top: -12%;
+    left: -120px;
+    width: 240px;
+  }
+  img#tool-6 {
+    top: -8%;
+    right: -80px;
+    width: 270px;
+  }
+  img#tool-7 {
+    bottom: 24%;
+    left: -120px;
+    width: 240px;
+  }
+  img#tool-8 {
+    bottom: 15%;
+    right: -72px;
+    width: 200px;
   }
   @media (orientation: portrait) {
     img#tool-1 {
@@ -745,6 +843,14 @@ img#tool-4 {
     right: -14%;
     width: 300px;
   }
+  img#tool-5 {
+    top: 16%;
+    left: -80px;
+  }
+  img#tool-6 {
+    top: -5%;
+    right: -80px;
+  }
   .hero-section {
     min-height: 480px;
   }
@@ -768,6 +874,24 @@ img#tool-4 {
     top: 28%;
     right: -14%;
     width: 300px;
+  }
+  img#tool-5 {
+    top: 20%;
+  }
+  img#tool-6 {
+    top: -5%;
+    right: -100px;
+    width: 240px;
+  }
+  img#tool-7 {
+    bottom: 15%;
+    left: -120px;
+    width: 240px;
+  }
+  img#tool-8 {
+    bottom: 52%;
+    right: -48px;
+    width: 150px;
   }
 }
 @media only screen and (max-width: 639px) {
