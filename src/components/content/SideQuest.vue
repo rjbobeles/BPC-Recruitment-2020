@@ -31,7 +31,7 @@ export default class SideQuest extends Vue {
 .side-quest {
   border-radius: 50px;
   background-image: linear-gradient(to top, #78a8f0, #99f0ff);
-  border: 8px solid white;
+  border: 4px solid white;
   color: #140f2c;
   img {
     top: -72px;

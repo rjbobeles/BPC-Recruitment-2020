@@ -6,10 +6,10 @@
     <img
       :src="require('../../assets/images/home/cards/' + position.image)"
       :alt="position.title"
-      class="hvr-grow-rotate mb-3 hover:shadow-lg"
+      class="hvr-grow-rotate mb-3"
     />
     <h5
-      class="paralucent-bolditalic text-5xl md:text-3xl leading-none"
+      class="paralucent-bolditalic text-4xl md:text-3xl leading-none"
       :style="'color:' + position.color"
     >
       {{ position.title }}
@@ -30,6 +30,10 @@ export default class Cards extends Vue {
 <style scoped>
 img {
   max-height: 64vh;
+}
+img:hover {
+  -webkit-filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0));
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
 .hvr-grow-rotate:hover {
   transition-property: all;

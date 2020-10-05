@@ -77,3 +77,39 @@ body {
     }
   }
 }
+
+.btn {
+  top: 0;
+  left: 0;
+  transition: all .15s linear 0s;
+  position: relative;
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #ffcf4a !important;
+  border: none !important; 
+  font-family: 'paralucent-demibold', sans-serif !important; 
+  font-size: 2rem !important; 
+  
+  text-transform: uppercase;
+  color: #80442d !important;
+  
+  box-shadow: 8px 8px 0 #64281d;
+  text-decoration: none;
+  border-radius: 10px; 
+  
+  &:hover {
+    top: 4px;
+    left: 4px;
+    box-shadow: 4px 4px 0 #64281d;
+  }
+
+}
+
+a.btn, input.btn { position: relative; }
+
+a:active.btn, input:active.btn {
+  top: 8px;
+  left: 8px;
+  box-shadow: none;
+
+}

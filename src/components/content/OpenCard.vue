@@ -6,11 +6,7 @@
       <div class="flex flex-col md:flex-row pt-8 xl:pt-12 pb-5 mb-3 items-center md:items-start">
         <div class="w-1/2 md:w-1/3 flex justify-center items-center self-center mb-12 md:mb-0">
           <div v-tilt="{ glare: true, scale: 1.05, 'max-glare': 1, gyroscope: true }">
-            <img
-              :src="require('../../assets/images/home/cards/' + val.image)"
-              :alt="val.title"
-              class="shadow-lg"
-            />
+            <img :src="require('../../assets/images/home/cards/' + val.image)" :alt="val.title" />
           </div>
         </div>
         <div class="w-full md:w-2/3 md:pl-16">
@@ -52,13 +48,17 @@ export default class OpenCard extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .card {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border-radius: 30px;
   width: 960px;
   max-height: 90vh;
   overflow: auto;
+  img {
+    -webkit-filter: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.12));
+    filter: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.12));
+  }
 }
 
 .card::-webkit-scrollbar {

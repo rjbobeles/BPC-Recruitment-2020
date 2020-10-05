@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="top-section bg-cement relative bg-center bg-contain w-full">
+    <div class="top-section bg-cement relative bg-center bg-cover w-full">
       <div
         class="container relative z-10 hero-section h-screen py-24 flex flex-col items-center justify-between text-white"
       >
@@ -85,37 +85,9 @@
           </div>
         </div>
       </div>
-      <img
-        src="../assets/images/home/tool-1.png"
-        class="absolute hidden sm:inline"
-        id="tool-1"
-        ref="toolA"
-        data-lax-preset="lazy-250"
-      />
-      <img
-        src="../assets/images/home/tool-2.png"
-        class="absolute hidden sm:inline"
-        id="tool-2"
-        ref="toolB"
-        data-lax-preset="lazy-210"
-      />
-      <img
-        src="../assets/images/home/tool-3.png"
-        class="absolute hidden sm:inline"
-        id="tool-3"
-        ref="toolC"
-        data-lax-preset="lazy-250"
-      />
-      <img
-        src="../assets/images/home/tool-4.png"
-        class="absolute hidden sm:inline"
-        id="tool-4"
-        ref="toolD"
-        data-lax-preset="lazy-210"
-      />
     </div>
     <div id="main-quest-1" class="main-quest-1 w-full py-24 bg-fixed bg-cover">
-      <div class="container mx-auto px-5 text-center lg:text-left">
+      <div class="container mx-auto px-5 text-center lg:text-left relative">
         <h4 class="text-white text-3xl paralucent-medium leading-none">MAIN QUEST 1:</h4>
         <h2 class="text-white text-5xl font-bold mb-24 lg:mb-16 leading-tight paralucent-text-bold">
           GATHER YOUR GEAR AND ARMS
@@ -149,7 +121,7 @@
         <vue-faq-accordion :items="faqItems" class="w-full" activeColor="#000" borderColor="#000" />
       </div>
     </div>
-    <div class="w-full pb-24 md:pb-32 relative">
+    <div class="w-full pb-24 md:pb-32 relative" id="choose-your-character">
       <div class="container mx-auto px-5 text-center md:text-left relative z-10">
         <h4 class="text-3xl paralucent-medium leading-none">MAIN QUEST 2:</h4>
         <h2 class="text-5xl font-bold leading-none md:leading-tight paralucent-text-bold">
@@ -193,34 +165,6 @@
         </div>
       </div>
       <xmodal v-model="isOpen" :params="options" />
-      <img
-        src="../assets/images/home/tool-5.png"
-        class="absolute hidden sm:inline"
-        id="tool-5"
-        ref="toolE"
-        data-lax-preset="lazy-180"
-      />
-      <img
-        src="../assets/images/home/tool-6.png"
-        class="absolute hidden sm:inline"
-        id="tool-6"
-        ref="toolF"
-        data-lax-preset="lazy-150"
-      />
-      <img
-        src="../assets/images/home/tool-7.png"
-        class="absolute hidden sm:inline"
-        id="tool-7"
-        ref="toolG"
-        data-lax-preset="lazy-200"
-      />
-      <img
-        src="../assets/images/home/tool-8.png"
-        class="absolute hidden sm:inline"
-        id="tool-8"
-        ref="toolH"
-        data-lax-preset="lazy-220"
-      />
     </div>
     <Form :courses="apiRes.courses" :positions="apiRes.positions" />
   </div>
@@ -231,6 +175,8 @@ import { Vue, Component, Ref } from 'vue-property-decorator'
 import { ApiResponse } from '@/types'
 import fetchSubmissionData from '@/helpers'
 import VueFaqAccordion from 'vue-faq-accordion'
+
+import { WOW } from 'wowjs'
 
 import Form from '@/components/Form.vue'
 import SideQuest from '@/components/content/SideQuest.vue'
@@ -278,24 +224,21 @@ type reqGroup = {
 export default class Home extends Vue {
   apiRes: ApiResponse = {}
 
-  @Ref('toolA') readonly toolA!: HTMLImageElement
-
-  @Ref('toolB') readonly toolB!: HTMLImageElement
-
-  @Ref('toolC') readonly toolC!: HTMLImageElement
-
-  @Ref('toolD') readonly toolD!: HTMLImageElement
-
-  @Ref('toolE') readonly toolE!: HTMLImageElement
-
-  @Ref('toolF') readonly toolF!: HTMLImageElement
-
-  @Ref('toolG') readonly toolG!: HTMLImageElement
-
-  @Ref('toolH') readonly toolH!: HTMLImageElement
-
   async created() {
     await this.setApiRes()
+  }
+
+  mounted() {
+    const wow = new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 0,
+      mobile: true,
+      live: false,
+    })
+    this.$nextTick(() => {
+      wow.init()
+    })
   }
 
   private requirements: Array<object> = [
@@ -639,27 +582,6 @@ export default class Home extends Vue {
     console.log(this.isOpen)
   }
 
-  mounted() {
-    Vue.prototype.$lax.addElement(this.toolA)
-    Vue.prototype.$lax.addElement(this.toolB)
-    Vue.prototype.$lax.addElement(this.toolC)
-    Vue.prototype.$lax.addElement(this.toolD)
-    Vue.prototype.$lax.addElement(this.toolE)
-    Vue.prototype.$lax.addElement(this.toolF)
-    Vue.prototype.$lax.addElement(this.toolG)
-    Vue.prototype.$lax.addElement(this.toolH)
-  }
-
-  beforeDestroy() {
-    Vue.prototype.$lax.addElement(this.toolA)
-    Vue.prototype.$lax.addElement(this.toolB)
-    Vue.prototype.$lax.addElement(this.toolC)
-    Vue.prototype.$lax.addElement(this.toolE)
-    Vue.prototype.$lax.addElement(this.toolF)
-    Vue.prototype.$lax.addElement(this.toolG)
-    Vue.prototype.$lax.addElement(this.toolH)
-  }
-
   async setApiRes() {
     this.apiRes = await fetchSubmissionData()
   }
@@ -667,55 +589,24 @@ export default class Home extends Vue {
 </script>
 
 <style scoped lang="scss">
-img#tool-1 {
-  top: 25%;
-  left: -100px;
-  width: 420px;
+.top-section {
+  background-image: url('../assets/images/home/hero-bg.png');
 }
-img#tool-2 {
-  top: 15%;
-  right: -100px;
-  width: 400px;
-}
-img#tool-3 {
-  bottom: 0;
-  right: -180px;
-  width: 400px;
-}
-img#tool-4 {
-  bottom: 0;
-  left: -180px;
-  width: 400px;
-}
-img#tool-5 {
-  top: -5%;
-  left: -150px;
-  width: 320px;
-}
-img#tool-6 {
-  top: -5%;
-  right: -120px;
-  width: 320px;
-}
-img#tool-7 {
-  bottom: 10%;
-  left: -120px;
-  width: 270px;
-}
-img#tool-8 {
-  bottom: 18%;
-  right: -72px;
-  width: 200px;
-}
+
 .hero-section {
   min-height: 680px;
 }
 .the-challenge {
   min-height: 768px;
   .challenge {
-    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 40px;
     box-shadow: 20px 20px rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(
+      to bottom,
+      rgb(248, 241, 226),
+      rgb(248, 241, 226),
+      rgb(233, 220, 195)
+    );
     h3 {
       top: -24px;
     }
@@ -727,104 +618,25 @@ img#tool-8 {
 }
 
 .main-quest-1 {
-  background-image: url('../assets/images/home/three-quests.webp');
+  background-image: url('../assets/images/home/three-quests2.png');
 }
 
 @media only screen and (min-width: 1800px) {
-  img#tool-1 {
-    top: 25%;
-    left: 2%;
-    width: 400px;
-  }
-  img#tool-2 {
-    top: 15%;
-    right: 3%;
-    width: 380px;
-  }
-  img#tool-3 {
-    bottom: 10%;
-    right: -3%;
-    width: 400px;
-  }
-  img#tool-4 {
-    bottom: 10%;
-    left: -2%;
-  }
-  img#tool-5 {
-    left: -80px;
-  }
-  img#tool-6 {
-    top: -10%;
-    right: -20px;
-  }
-  img#tool-7 {
-    bottom: 26%;
-    left: -72px;
-  }
-  img#tool-8 {
-    bottom: 24%;
-    right: 12px;
-  }
   .challenge {
     p {
       font-size: 1rem;
     }
-    .text-lg {
-      font-size: 1.5rem;
+    .text-base {
+      font-size: 1.2rem !important;
+    }
+    .text-2xl {
+      font-size: 1.5rem !important;
     }
   }
 }
 
 @media only screen and (max-width: 1279px) {
-  img#tool-1 {
-    top: 25%;
-    left: -12%;
-    width: 400px;
-  }
-  img#tool-2 {
-    top: 15%;
-    right: -12%;
-    width: 380px;
-  }
-  img#tool-3 {
-    bottom: 0;
-  }
-  img#tool-4 {
-    bottom: 0;
-  }
-  img#tool-5 {
-    top: -12%;
-    left: -120px;
-    width: 240px;
-  }
-  img#tool-6 {
-    top: -8%;
-    right: -80px;
-    width: 270px;
-  }
-  img#tool-7 {
-    bottom: 24%;
-    left: -120px;
-    width: 240px;
-  }
-  img#tool-8 {
-    bottom: 15%;
-    right: -72px;
-    width: 200px;
-  }
   @media (orientation: portrait) {
-    img#tool-1 {
-      top: 32%;
-    }
-    img#tool-2 {
-      top: 32%;
-    }
-    img#tool-3 {
-      bottom: 2%;
-    }
-    img#tool-4 {
-      bottom: 2%;
-    }
     .the-challenge {
       height: auto;
       min-height: 1024px;
@@ -833,24 +645,6 @@ img#tool-8 {
 }
 
 @media only screen and (max-width: 1023px) {
-  img#tool-1 {
-    top: 25%;
-    left: -12%;
-    width: 350px;
-  }
-  img#tool-2 {
-    top: 22%;
-    right: -14%;
-    width: 300px;
-  }
-  img#tool-5 {
-    top: 16%;
-    left: -80px;
-  }
-  img#tool-6 {
-    top: -5%;
-    right: -80px;
-  }
   .hero-section {
     min-height: 480px;
   }
@@ -864,36 +658,7 @@ img#tool-8 {
     }
   }
 }
-@media only screen and (max-width: 767px) {
-  img#tool-1 {
-    top: 25%;
-    left: -20%;
-    width: 350px;
-  }
-  img#tool-2 {
-    top: 28%;
-    right: -14%;
-    width: 300px;
-  }
-  img#tool-5 {
-    top: 20%;
-  }
-  img#tool-6 {
-    top: -5%;
-    right: -100px;
-    width: 240px;
-  }
-  img#tool-7 {
-    bottom: 15%;
-    left: -120px;
-    width: 240px;
-  }
-  img#tool-8 {
-    bottom: 52%;
-    right: -48px;
-    width: 150px;
-  }
-}
+
 @media only screen and (max-width: 639px) {
   .challenge > h3 {
     display: block;
@@ -905,7 +670,7 @@ img#tool-8 {
     font-size: 10vw;
   }
   #title2 {
-    font-size: 15vw;
+    font-size: 18vw;
   }
 }
 </style>
