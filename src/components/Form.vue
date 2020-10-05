@@ -1,6 +1,6 @@
 <template>
-  <div id="form" class="text-white">
-    <div class="container p-8 flex flex-col min-h-screen">
+  <div id="form" class="text-white bg-cover">
+    <div class="container p-8 flex flex-col justify-center min-h-screen">
       <div>
         <h1 class="paralucent-bold uppercase text-4xl mt-10 md:mt-0 md:text-5xl text-center mb-10">
           Submissions
@@ -308,7 +308,7 @@
                 correct and complete.
               </p>
               <div class="flex justify-end">
-                <input type="submit" value="Submit" class="submitButton mt-2 cursor-pointer" />
+                <input type="submit" value="Submit" class="btn mt-2 cursor-pointer" />
               </div>
             </div>
           </div>
@@ -536,7 +536,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 #form {
-  background-image: url('../assets/images/home/form-bg.jpg');
+  background-image: url('../assets/images/home/hero-bg.png');
 }
 
 input {
