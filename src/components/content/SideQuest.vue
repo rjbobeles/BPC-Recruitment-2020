@@ -1,13 +1,21 @@
 <template>
   <div
-    class="side-quest p-5 pb-12 sm:p-8 sm:pb-16 w-full sm:w-3/4 md:w-1/2 lg:w-5/6 wow hvr-grow cursor-pointer mb-24 lg:mb-0"
+    class="side-quest p-5 pb-12 sm:p-8 sm:pb-16 w-full sm:w-3/4 md:w-1/2 lg:w-5/6 wow hvr-grow mb-24 lg:mb-0 bg-contain bg-no-repeat bg-center"
     :class="animation.name"
     :data-wow-delay="animation.delay"
     :data-wow-duration="animation.duration"
   >
-    <div class="w-full flex flex-col items-center relative text-center">
-      <img src="../../assets/images/home/coin.png" width="110px" class="absolute bob" />
-      <h4 class="paralucent-demibold text-4xl mb-5 mt-12">{{ content.heading }}</h4>
+    <div
+      class="w-64 mx-auto sm:w-full flex flex-col items-center justify-center lg:justify-start h-full relative text-center sm:px-16 lg:px-3"
+    >
+      <img
+        :src="require('../../assets/images/home/' + content.coin)"
+        width="110px"
+        class="absolute xl:static bob"
+      />
+      <h4 class="paralucent-demibold text-3xl lg:text-4xl mb-5 lg:mt-12 xl:mt-3 leading-none">
+        {{ content.heading }}
+      </h4>
       <div
         class="w-full text-center text-base md:text-sm sourcesans-semibold"
         v-html="content.body"
@@ -29,10 +37,9 @@ export default class SideQuest extends Vue {
 
 <style scoped lang="scss">
 .side-quest {
-  border-radius: 50px;
-  background-image: linear-gradient(to top, #78a8f0, #99f0ff);
-  border: 4px solid white;
+  background-image: url('../../assets/images/home/sidequest.png');
   color: #140f2c;
+  height: 420px;
   img {
     top: -72px;
   }
