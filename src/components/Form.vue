@@ -7,8 +7,8 @@
         </h1>
       </div>
       <form method="POST" @submit.prevent="checkForm">
-        <div class="flex flex-col mx-2 md:flex-row md:mx-8">
-          <div class="flex-1 justify-center md:pr-5">
+        <div class="flex flex-col mx-2 md:flex-row xl:mx-24">
+          <div class="flex-1 justify-center md:pr-5 lg:pr-12">
             <div>
               <input
                 type="text"
@@ -164,7 +164,7 @@
               ID number must be a valid Benilde ID number
             </span>
           </div>
-          <div class="flex-1 md:pl-5">
+          <div class="flex-1 md:pl-5 lg:pl-12">
             <div class="mt-4 md:mt-0">
               <input
                 type="checkbox"
@@ -183,13 +183,12 @@
               />
               SECOND DEGREE
             </div>
-            <div>
+            <div class="mt-4">
               <input
                 name="termsLeft"
                 id="termsLeft"
                 placeholder="TERMS LEFT"
-                class="w-full mt-4"
-                style="padding-top: 1px"
+                class="w-full"
                 v-model.trim="userData.termsLeft"
                 @blur="$v.userData.termsLeft.$touch()"
               />
@@ -303,18 +302,23 @@
               </span>
             </div>
             <div class="flex justify-end flex-col">
-              <p class="conditions mt-8">
+              <p class="conditions mt-8 text-sm">
                 By clicking SUBMIT, you confirm that the information provided in this form is
                 correct and complete.
               </p>
               <div class="flex justify-end">
-                <input type="submit" value="Submit" class="btn mt-2 cursor-pointer" />
+                <button
+                  type="submit"
+                  class="cursor-pointer focus:outline-none mx-auto md:mx-0 w-1/2 sm:w-2/5 md:w-3/5 lg:w-2/5 xl:w-1/3 wow bounceIn hvr-grow mt-8"
+                >
+                  <img src="../assets/images/home/submit_button.png" alt="Submit" />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </form>
-      <span class="paralucent-light text-center text-xs md:text-sm mt-24 mb-8">
+      <span class="paralucent-light text-center text-xs md:text-sm mt-24">
         Benildean Press Corps &copy; 2020. All rights reserved.
       </span>
     </div>
@@ -540,11 +544,11 @@ export default Vue.extend({
 }
 
 input {
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-  color: #fff;
-  padding: 0.5rem;
-  font-family: 'sourcesans-regular', sans-serif;
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(85, 30, 30);
+  padding: 0.8rem;
+  font-family: 'sourcesans-semibold', sans-serif;
 }
 
 input:focus {
@@ -553,37 +557,38 @@ input:focus {
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(201, 189, 181);
 }
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(201, 189, 181);
   opacity: 1;
 }
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(201, 189, 181);
   opacity: 1;
 }
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(201, 189, 181);
 }
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(201, 189, 181);
 }
 
 ::placeholder {
   /* Most modern browsers support this now. */
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(201, 189, 181);
 }
 
 .multiselect {
-  background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-  color: rgba(255, 255, 255, 0.75);
-  padding: 0.5rem;
+  background-color: white;
+  border-radius: 10px;
+  color: rgb(85, 30, 30);
+  padding: 0.8rem;
+  font-family: 'sourcesans-semibold', sans-serif;
   position: relative;
   overflow: visible !important;
 }
@@ -618,11 +623,15 @@ input:focus {
   transition: background-color 200ms linear;
 }
 
-.conditions {
-  font-size: 9px;
-}
-
 .error {
   color: rgb(255, 235, 170);
+}
+
+@media only screen and (max-width: 767px) {
+  input,
+  .multiselect {
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
+  }
 }
 </style>
