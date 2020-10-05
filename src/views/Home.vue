@@ -223,7 +223,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 import { ApiResponse } from '@/types'
 import fetchSubmissionData from '@/helpers'
 import VueFaqAccordion from 'vue-faq-accordion'
