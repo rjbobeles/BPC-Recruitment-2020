@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%; overflow-x: hidden">
     <div class="top-section bg-cement relative bg-center bg-cover w-full">
       <div
         class="container relative z-10 hero-section h-screen py-24 flex flex-col items-center justify-between text-white"
@@ -76,6 +76,7 @@
             <a
               class="mx-auto md:mx-0 md:absolute start-button wow bounceIn hvr-grow"
               href="#main-quest-1"
+              v-smooth-scroll
             >
               <img
                 src="../assets/images/home/start-button.png"
@@ -85,10 +86,34 @@
           </div>
         </div>
       </div>
+      <img
+        src="../assets/images/home/tool-1.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -2 }"
+        id="tool-1"
+      />
+      <img
+        src="../assets/images/home/tool-2.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -2 }"
+        id="tool-2"
+      />
+      <img
+        src="../assets/images/home/tool-3.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -1 }"
+        id="tool-3"
+      />
+      <img
+        src="../assets/images/home/tool-4.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -1 }"
+        id="tool-4"
+      />
     </div>
     <div id="main-quest-1" class="main-quest-1 w-full py-24 bg-fixed bg-cover">
       <div class="container mx-auto px-5 text-center lg:text-left relative">
-        <h4 class="text-white text-3xl paralucent-medium leading-none">MAIN QUEST 1:</h4>
+        <h4 class="text-white text-3xl paralucent-medium leading-none">[LV. 1] MAIN QUEST</h4>
         <h2 class="text-white text-5xl font-bold mb-24 lg:mb-16 leading-tight paralucent-text-bold">
           GATHER YOUR GEAR AND ARMS
         </h2>
@@ -123,10 +148,13 @@
     </div>
     <div class="w-full pb-24 md:pb-32 relative" id="choose-your-character">
       <div class="container mx-auto px-5 text-center md:text-left relative z-10">
-        <h4 class="text-3xl paralucent-medium leading-none">MAIN QUEST 2:</h4>
+        <h4 class="text-3xl paralucent-medium leading-none">[LV.2] MAIN QUEST:</h4>
         <h2 class="text-5xl font-bold leading-none md:leading-tight paralucent-text-bold">
           CHOOSE YOUR CHARACTER
         </h2>
+        <p class="sourcesans-italic text-sm text-cement">
+          Hint: Click on the cards to view details!
+        </p>
         <div class="py-12 xl:px-12">
           <div class="w-full flex stretch items-center mb-8">
             <hr class="border-black w-full" />
@@ -165,6 +193,30 @@
         </div>
       </div>
       <xmodal v-model="isOpen" :params="options" />
+      <img
+        src="../assets/images/home/tool-5.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -2 }"
+        id="tool-5"
+      />
+      <img
+        src="../assets/images/home/tool-6.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -1 }"
+        id="tool-6"
+      />
+      <img
+        src="../assets/images/home/tool-7.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -1 }"
+        id="tool-7"
+      />
+      <img
+        src="../assets/images/home/tool-8.png"
+        class="parallax-tool"
+        v-rellax="{ speed: -1 }"
+        id="tool-8"
+      />
     </div>
     <Form :courses="apiRes.courses" :positions="apiRes.positions" />
   </div>
@@ -243,18 +295,19 @@ export default class Home extends Vue {
 
   private requirements: Array<object> = [
     {
-      heading: 'SIDE QUEST 1',
+      heading: 'SIDE QUEST',
       body: `Using your Benilde Mail, create a google drive folder and name it using the following format: 
       <br /><br /> 
-      "LAST NAME_FIRSTNAME"`,
+      "LAST NAME_FIRST NAME"`,
       animation: {
         name: 'flipInY',
         duration: '0.8s',
         delay: '0s',
       },
+      coin: 'sq1.png',
     },
     {
-      heading: 'SIDE QUEST 2',
+      heading: 'SIDE QUEST',
       body: `Inside the folder, create three subfolders and label them accordingly by your section choices:
       <br /><br /> 
       First choice: "1. [SECTION]" <br /> 
@@ -265,15 +318,17 @@ export default class Home extends Vue {
         duration: '0.8s',
         delay: '0.2s',
       },
+      coin: 'sq2.png',
     },
     {
-      heading: 'SIDE QUEST 3',
+      heading: 'SIDE QUEST',
       body: `Upload your requirements in each respective section folders.`,
       animation: {
         name: 'flipInY',
         duration: '0.8s',
         delay: '0.4s',
       },
+      coin: 'sq3.png',
     },
   ]
 
@@ -328,7 +383,7 @@ export default class Home extends Vue {
     },
     {
       title: 'What are the requirements?',
-      value: `There are specific requirements for each section. You may view them <a href="#" class="underline">here</a>.`,
+      value: `There are specific requirements for each section. You may view them <a href="#choose-your-character" class="underline" v-smooth-scroll >here</a>.`,
     },
     {
       title: 'How do we submit requirements?',
@@ -464,7 +519,7 @@ export default class Home extends Vue {
           reqs: ['Curriculum Vitae (CV)', 'Three (3) to five (5) portfolio works'],
         },
       ],
-      color: '#4fb948',
+      color: '#EBC378',
     },
     {
       title: 'Layout',
@@ -484,7 +539,7 @@ export default class Home extends Vue {
           ],
         },
       ],
-      color: '#4fb948',
+      color: '#ECB8C3',
     },
     {
       title: 'Digital Media',
@@ -515,7 +570,7 @@ export default class Home extends Vue {
           reqs: ['Curriculum Vitae (CV)', 'Sample copywriting or literary works'],
         },
       ],
-      color: '#4fb948',
+      color: '#595959',
     },
     {
       title: 'Photo',
@@ -534,7 +589,7 @@ export default class Home extends Vue {
           ],
         },
       ],
-      color: '#4fb948',
+      color: '#E75D5A',
     },
     {
       title: 'Managing',
@@ -549,7 +604,7 @@ export default class Home extends Vue {
           reqs: ['Curriculum Vitae (CV)'],
         },
       ],
-      color: '#4fb948',
+      color: '#999999',
     },
   ]
 
@@ -618,7 +673,8 @@ export default class Home extends Vue {
 }
 
 .main-quest-1 {
-  background-image: url('../assets/images/home/three-quests2.png');
+  background-image: linear-gradient(rgba(24, 24, 32, 0.1), rgba(24, 24, 32, 0.1)),
+    url('../assets/images/home/three-quests2.png');
 }
 
 @media only screen and (min-width: 1800px) {
