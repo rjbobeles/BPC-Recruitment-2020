@@ -78,6 +78,10 @@ body {
   }
 }
 
+.multiselect__placeholder {
+  color: rgb(201, 189, 181);
+}
+
 .btn {
   top: 0;
   left: 0;
@@ -112,4 +116,182 @@ a:active.btn, input:active.btn {
   left: 8px;
   box-shadow: none;
 
+}
+
+/* === PARALLAX TOOLS === */ 
+.parallax-tool {
+  position: absolute; 
+}
+
+#tool-1 {
+  width: 360px; 
+  top: 25%; 
+  left: -5%; 
+}
+
+#tool-2 {
+ top: 15%; 
+ right: -10%; 
+}
+
+#tool-3 {
+  width: 220px; 
+  bottom: 8%; 
+  right: 0; 
+}
+
+#tool-4 {
+  bottom: 5%; 
+  left: -4%; 
+  width: 270px; 
+}
+
+#tool-5 {
+  top: -52%;
+  left: -2%; 
+  width: 200px;  
+}
+
+#tool-6 {
+  top: -22%; 
+  right: -5%; 
+  width: 320px; 
+}
+
+#tool-7 {
+  bottom: 20%; 
+  left: -5%; 
+  width: 220px; 
+}
+
+#tool-8 {
+  bottom: 25%; 
+  right: -8%; 
+  width: 270px; 
+}
+
+@media only screen and (min-width: 1800px) {
+  #tool-1 {
+    top: 28%; 
+    left: 5%; 
+  }
+  #tool-2 {
+    right: -5%; 
+  }
+  #tool-3 {
+    right: 2%;
+    bottom: 4%;  
+  }
+  #tool-4 { 
+    left: -1%; 
+    bottom: 8%; 
+    width: 320px; 
+  }
+  #tool-5 {
+    width: 270px; 
+    left: 1%; 
+  }
+  #tool-6 {
+    width: 360px; 
+    top: -30%; 
+    right: 0; 
+  }
+  #tool-7 {
+    left: -2%; 
+    bottom: 10%; 
+    width: 270px; 
+  }
+  #tool-8 {
+    width: 360px; 
+    bottom: 36%; 
+    right: -3%; 
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  #tool-1 {
+    width: 270px; 
+  }
+  #tool-2 {
+    right: -15%; 
+  }
+  #tool-4 {
+    width: 220px; 
+  }
+  #tool-5 {
+    top: -56%; 
+    left: -5%; 
+  }
+  #tool-6 {
+    top: -26%; 
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  #tool-5, #tool-6, #tool-7, #tool-8 {
+    display: none; 
+  }
+}
+
+@media only screen and (max-width: 1279px) {
+  #tool-1 {
+    top: 32%; 
+  }
+  #tool-2 {
+    right: -26%; 
+  }
+  @media (orientation: portrait) {
+    #tool-1 {
+      top: 36%; 
+    }
+    #tool-2 {
+      top: 28%; 
+    }
+    #tool-3 {
+      bottom: 5%; 
+    }
+    #tool-4 {
+      width: 300px; 
+    }
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  #tool-2 {
+    right: -36%; 
+  }
+  #tool-4 {
+    left: -12%; 
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #tool-1 {
+    width: 240px; 
+  }
+  #tool-2 {
+    width: 450px;
+    top: 32%; 
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  #tool-1 {
+    left: -20%; 
+    top: 25%; 
+    width: 180px; 
+  }
+  #tool-2 {
+    top: 22%; 
+    width: 400px; 
+    right: -56%; 
+  }
+  #tool-3 {
+    width: 160px; 
+    right: -10%; 
+  }
+  #tool-4 {
+    width: 180px; 
+    left: -18%; 
+  }
 }
