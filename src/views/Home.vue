@@ -38,7 +38,7 @@
       >
         <div class="w-full flex flex-col md:flex-row">
           <div class="w-1/6 md:w-1/4 flex items-center justify-center mx-auto mb-12 md:mb-0">
-            <img src="../assets/images//nameplates/BPC_Logo_White.png" class="w-full lg:w-3/4" />
+            <img src="../assets/images//nameplates/logo.gif" class="w-full lg:w-2/3" />
           </div>
           <div
             class="flex flex-col w-11/12 sm:w-3/4 md:w-2/3 lg:w-2/3 xl:w-3/5 relative challenge mx-auto px-5 pt-12 pb-8 md:pb-12 sm:px-12 wow bounceIn"
@@ -415,7 +415,7 @@ export default class Home extends Vue {
         'With its foremost mandate to uncover the truth, Pulse is committed in bringing and reporting of recent and relevant news, issues and controversies that concern not only the Benildean community, but as well as the youth and the general public, amid the threats brought by the global pandemic.',
       requirements: [
         {
-          title: 'Test',
+          title: '',
           reqs: [
             'Curriculum Vitae (CV)',
             'Three (3) sample works of fact-driven objective writing',
@@ -553,8 +553,11 @@ export default class Home extends Vue {
           title: 'Web Developer',
           reqs: [
             'Curriculum Vitae (CV)',
-            'Sample websites or website designs',
-            'Front end UI UX Sample',
+            'Front-end UI UX Sample',
+            'Solid foundation on HTML/CSS/JS',
+            'Knowledge on PHP or Node.js',
+            'Knowledge of the concept of CI/CD',
+            'Knowledge on server management',
           ],
         },
         {
