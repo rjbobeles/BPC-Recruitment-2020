@@ -24,7 +24,7 @@
                 v-if="!submitted"
                 class="text-xs error self-start"
               >
-                Name must follow the format: LAST NAME, FIRST NAME
+                Name must follow the format: Last Name, First Name
               </span>
             </div>
             <div>

@@ -292,6 +292,8 @@ export default class Home extends Vue {
     this.$nextTick(() => {
       wow.init()
     })
+    this.getCloseDate(this.apiRes.closeTime)
+    alert(this.apiRes.closeTime)
   }
 
   private requirements: Array<object> = [
@@ -551,14 +553,14 @@ export default class Home extends Vue {
         'Equipped with innovative and creative concepts to keep up with the ever-changing trends in technology and the online world, the Digital Media section digitalizes stories and develops websites through its three subsections: video production, social media engagement and management, as well as web development.',
       requirements: [
         {
-          title: 'Web Developer',
+          title: 'Web Developer (Front-end or Back-end)',
           reqs: [
             'Curriculum Vitae (CV)',
-            'Front-end UI UX Sample',
-            'Solid foundation on HTML/CSS/JS',
-            'Knowledge on PHP or Node.js',
-            'Knowledge of the concept of CI/CD',
-            'Knowledge on server management',
+            '(FE) UI/UX Sample',
+            '(FE) Solid foundation on HTML/CSS/JS',
+            '(BE) Knowledge on PHP or Node.js',
+            '(BE) Knowledge of the concept of CI/CD',
+            '(BE) Knowledge on server management',
           ],
         },
         {
@@ -612,6 +614,8 @@ export default class Home extends Vue {
     },
   ]
 
+  private closeDate = ''
+
   public isOpen = false
 
   public options: modalOptions = {
@@ -643,6 +647,33 @@ export default class Home extends Vue {
 
   async setApiRes() {
     this.apiRes = await fetchSubmissionData()
+  }
+
+  private getCloseDate = (dateString: string) => {
+    const d = new Date(Date.parse(dateString))
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ]
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+    const month = months[d.getMonth()]
+    const date = d.getDate()
+    const year = d.getFullYear()
+    const day = days[d.getDay()]
+    const time = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+
+    this.closeDate = `${month} ${date} ${year} (${day}) ${time}`
   }
 }
 </script>
