@@ -250,6 +250,7 @@ type card = {
 }
 
 type modalOptions = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   component: any
   animation: string
   backgroundColor: string
