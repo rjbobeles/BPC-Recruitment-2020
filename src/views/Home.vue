@@ -277,11 +277,7 @@ type reqGroup = {
 export default class Home extends Vue {
   apiRes: ApiResponse = {}
 
-  async created() {
-    await this.setApiRes()
-  }
-
-  mounted() {
+  async mounted() {
     const wow = new WOW({
       boxClass: 'wow',
       animateClass: 'animated',
@@ -292,8 +288,7 @@ export default class Home extends Vue {
     this.$nextTick(() => {
       wow.init()
     })
-    this.getCloseDate(this.apiRes.closeTime)
-    alert(this.apiRes.closeTime)
+    await this.setApiRes()
   }
 
   private requirements: Array<object> = [
@@ -368,7 +363,7 @@ export default class Home extends Vue {
     },
     {
       title: 'When are applications due?',
-      value: 'We are accepting applications for this term until October 11 2020 (Monday) 10:00pm.',
+      value: `We are accepting applications for this term until October 30 2020 (Monday) 10:00pm.`,
     },
     {
       title: 'Do I need to fill up all three choices?',
@@ -614,8 +609,6 @@ export default class Home extends Vue {
     },
   ]
 
-  private closeDate = ''
-
   public isOpen = false
 
   public options: modalOptions = {
@@ -647,33 +640,6 @@ export default class Home extends Vue {
 
   async setApiRes() {
     this.apiRes = await fetchSubmissionData()
-  }
-
-  private getCloseDate = (dateString: string) => {
-    const d = new Date(Date.parse(dateString))
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ]
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-    const month = months[d.getMonth()]
-    const date = d.getDate()
-    const year = d.getFullYear()
-    const day = days[d.getDay()]
-    const time = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-
-    this.closeDate = `${month} ${date} ${year} (${day}) ${time}`
   }
 }
 </script>
