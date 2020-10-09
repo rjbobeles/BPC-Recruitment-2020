@@ -506,21 +506,21 @@ export default Vue.extend({
         choice1: {
           required,
           choice1Valid(choice1) {
-            if (choice1 != null && choice1.id > 0 && choice1.id < 13) return true
+            if (choice1 != null && choice1.id > 0 && choice1.id < 14) return true
             return false
           },
         },
         choice2: {
           choice1Valid(choice2) {
             if (choice2 === null) return true
-            if (choice2 != null && choice2.id >= 0 && choice2.id < 13) return true
+            if (choice2 != null && choice2.id >= 0 && choice2.id < 14) return true
             return false
           },
         },
         choice3: {
           choice1Valid(choice3) {
             if (choice3 === null) return true
-            if (choice3 != null && choice3.id >= 0 && choice3.id < 13) return true
+            if (choice3 != null && choice3.id >= 0 && choice3.id < 14) return true
             return false
           },
         },
