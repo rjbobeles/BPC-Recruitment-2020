@@ -453,7 +453,7 @@ export default Vue.extend({
         minLength: minLength(4),
         maxLength: maxLength(60),
         isFullName(name) {
-          return /^([A-Z][a-z]*,((\s)[A-Z][a-z]*)+)$/.test(name)
+          return /^(((\s)?[A-Z][a-z]*)+,((\s)[A-Z][a-z]*)+)$/.test(name)
         },
       },
       nickname: {
