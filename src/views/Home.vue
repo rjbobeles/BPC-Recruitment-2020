@@ -363,7 +363,7 @@ export default class Home extends Vue {
     },
     {
       title: 'When are applications due?',
-      value: `We are accepting applications for this term until October 30 2020 (Monday) 10:00pm.`,
+      value: `We are accepting applications for this term until October 11 2020 (Monday) 10:00pm.`,
     },
     {
       title: 'Do I need to fill up all three choices?',
@@ -443,7 +443,7 @@ export default class Home extends Vue {
     },
     {
       title: 'Platform',
-      subtitle: 'Literary + Art + Design + Photography',
+      subtitle: 'Literary',
       image: 'card-platform.png',
       challenge: 'Will you move the plot forward?',
       description:
@@ -548,7 +548,7 @@ export default class Home extends Vue {
         'Equipped with innovative and creative concepts to keep up with the ever-changing trends in technology and the online world, the Digital Media section digitalizes stories and develops websites through its three subsections: video production, social media engagement and management, as well as web development.',
       requirements: [
         {
-          title: 'Web Developer (Front-end or Back-end)',
+          title: 'Web Developer (Front-end/Back-end)',
           reqs: [
             'Curriculum Vitae (CV)',
             '(FE) UI/UX Sample',
