@@ -14,7 +14,8 @@ const routes: Array<RouteConfig> = [
     beforeEnter: async (to, from, next) => {
       const apiRes = await fetchSubmissionData()
 
-      if (apiRes.status === 412 && apiRes.debug !== true) {
+      console.log(apiRes)
+      if (apiRes.code === 412 && apiRes.debug !== true) {
         if (apiRes.message === 'Coming Soon.') return next({ name: 'Coming Soon' })
         return next({ name: 'Closed' })
       }
@@ -28,7 +29,7 @@ const routes: Array<RouteConfig> = [
     beforeEnter: async (to, from, next) => {
       const apiRes = await fetchSubmissionData()
 
-      if (apiRes.status !== 412 && apiRes.debug !== true) {
+      if ((apiRes.code !== 412 && apiRes.debug !== true) || apiRes.code !== 412) {
         return next({ name: 'Home' })
       }
       return next()
@@ -45,7 +46,7 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Closed.vue'),
     beforeEnter: async (to, from, next) => {
       const apiRes = await fetchSubmissionData()
-      if (apiRes.status !== 412 && apiRes.debug !== true) {
+      if ((apiRes.code !== 412 && apiRes.debug !== true) || apiRes.code !== 412) {
         return next({ name: 'Home' })
       }
       return next()

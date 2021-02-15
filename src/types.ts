@@ -1,7 +1,7 @@
 export interface ApiResponse {
-  status?: number
+  code?: number
   message?: string
-  closeTime?: any
+  closeTime?: string
   extended?: boolean
   debug?: boolean
   courses?: Array<Course>
