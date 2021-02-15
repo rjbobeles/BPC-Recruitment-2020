@@ -556,9 +556,6 @@ export default class Home extends Vue {
             'Curriculum Vitae (CV)',
             '(FE) UI/UX Sample',
             '(FE) Solid foundation on HTML/CSS/JS',
-            '(BE) Knowledge on PHP or Node.js',
-            '(BE) Knowledge of the concept of CI/CD',
-            '(BE) Knowledge on server management',
           ],
         },
         {

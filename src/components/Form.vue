@@ -298,7 +298,7 @@
                 v-if="!submitted"
                 class="text-xs error self-start"
               >
-                Google Drive link must be a valid and has sharing enabled.
+                Google Drive link must be a valid URL.
               </span>
             </div>
             <div class="flex justify-end flex-col">
