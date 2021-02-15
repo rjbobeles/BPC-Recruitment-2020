@@ -344,7 +344,7 @@ export default class Home extends Vue {
     {
       title: 'What sections can I apply for?',
       value:
-        'For this term’s recruitment, you can apply for PULSE (News Section), Ablaze (Sports Section), Karilyon (Filipino Section), Platform (Literary Section), Art and Design, Layout, Photo, Digital Media and Managing.',
+        'For this term’s recruitment, you can apply for PULSE (News Section), BLIP (Features Section), Ablaze (Sports Section), Karilyon (Filipino Section), Platform (Literary Section), Art and Design, Layout, Photo, and Digital Media.',
     },
     {
       title: 'Is recruitment only open to frosh students?',
@@ -363,7 +363,7 @@ export default class Home extends Vue {
     },
     {
       title: 'When are applications due?',
-      value: `We are accepting applications for this term until October 11 2020 (Monday) 10:00pm.`,
+      value: `We are accepting applications for this term until February 19 2021 (Friday) 10:00pm.`,
     },
     {
       title: 'Do I need to fill up all three choices?',
@@ -453,7 +453,7 @@ export default class Home extends Vue {
           title: '',
           reqs: [
             'Curriculum Vitae',
-            'Minimum of three (3) best literary works which preferably include a short script/flash fiction, poetry, and literature review article',
+            'Minimum of three (3) best literary works including at least one poetry piece (free verse, traditional, etc.) and one prose piece (short story, short script/flash fiction, etc.)',
             'Flash fiction must have 200 to 300 words only',
             'Other entries are limited to 800-1000 words only',
           ],
@@ -534,6 +534,9 @@ export default class Home extends Vue {
             'Three (3) magazine layouts (1 spread, two pages)',
             'Two (2) to three (3) poster/social media layouts',
             'Optional: One (1) website wireframe / prototype',
+            'Optional: One (1) website wireframe / prototype',
+            'Optional: One (1) any layout (magazine/UI) designed for mobile',
+            'Optional: Any publication you made before',
           ],
         },
       ],
