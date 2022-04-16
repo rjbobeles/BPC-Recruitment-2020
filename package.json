@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint --fix"
+    "lint": "vue-cli-service lint --fix",
+    "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "@types/vuelidate": "^0.7.5",
@@ -42,9 +43,10 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^6.2.2",
+    "execa": "^4.0.",
     "lint-staged": "^9.5.0",
-    "node-sass": "^4.12.0",
     "prettier": "^2.1.2",
+    "sass": "^1.50.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
